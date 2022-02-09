@@ -1,165 +1,466 @@
-# Phase 4 Project
+## Title PlacwHolder
+
+aAuthor: Dylan Dey
+
+This project it available on github here: link
+
+The Author can be reached at the following email: ddey2985@gmail.com
+
+associated blog for BERT transfer learning using a sklearn wrapper to easily create a powerful sentiment classifier with a small dataset can be found at link below.
+
+[Blog Link](https://dev.to/ddey117/quick-bert-pre-trained-model-for-sentiment-analysis-with-scikit-wrapper-3jcp)
+
+## Overview
+
+Process twitter text data to gain insights on a brand and associated products. Create a machine learning sentiment classifier in order to predict sentiment in never before seen tweets. Create word freqency distribtuions, wordclouds, bigrams, and quadgrams to easily asses actionable insight to address concerns for the brand and it's product line. 
+
+## Business Problem
+
+A growing buisness with an established social media presence wants to explore options for generating actionable insights from twitter text data. They already plan to host a party to reveal their newest product. They are thinking of asking the crowd to participate in giving some feedback on how a collection of tweets about their brand makes them feel in order to win prizes and boost their social media traffic for the event.
+
+Apple decided to host an event in 2011 in Austin during a [SXSW](https://www.sxsw.com/) event in order to crowd source some labeled twitter data involving their company and their competitor, Google.
+
+Using this data, sourced from [CrowdFlower](), as well as some data from an additional [Apple Twitter Sentiment Dataset]() also made avaiable from CrowdFlower but cleaned and processed and made avaiable on [kaggle]() by author Chanran Kim, a machine learning classifier will be created in order to predict for sentiment contained within a tweet and show how it could be used in tandum with some NLP techniques to extract actionable insights from cluttered tweet data in a manageable way. 
+
+# Data Exploration 
+PLACEHOLDER FOR WORD CLOUDS
+
+
+
+
+
+
+
+All functions used to preprocess twitter data, such as removing noise from text and tokenizing, as well as the functions for creating confusion plots to quickly assess performance are shown below.
+
+```
+#list of all functions for modeling
+#and processing
+
+#force lowercase of text data
+def lower_case_text(text_series):
+    text_series = text_series.apply(lambda x: str.lower(x))
+    return text_series
+
+#remove URL links from text
+def strip_links(text):
+    link_regex = re.compile('((https?):((\/\/)|(\\\\))+([\w\d:#@%\/;$()~_?\+-=\\\.&](#!)?)*)|{link}/gm')
+    links = re.findall(link_regex, text)
+    for link in links:
+        text = text.replace(link[0], ', ')    
+    return text
+
+#remove '@' and '#' symbols from text
+def strip_all_entities(text):
+    entity_prefixes = ['@','#']
+    for separator in  string.punctuation:
+        if separator not in entity_prefixes:
+            text = text.replace(separator,' ')
+    words = []
+    for word in text.split():
+        word = word.strip()
+        if word:
+            if word[0] not in entity_prefixes:
+                words.append(word)
+    return ' '.join(words)
+
+#tokenize text and remove stopwords
+def process_text(text):
+    tokenizer = TweetTokenizer()
+    
+    stopwords_list = stopwords.words('english') + list(string.punctuation)
+    stopwords_list += ["''", '""', '...', '``']
+    my_stop = ["#sxsw",
+               "sxsw",
+               "sxswi",
+               "#sxswi's",
+               "#sxswi",
+               "southbysouthwest",
+               "rt",
+               "tweet",
+               "tweet's",
+               "twitter",
+               "austin",
+               "#austin",
+               "link",
+               "1/2",
+               "southby",
+               "south",
+               "texas",
+               "@mention",
+               "ï",
+               "ï",
+               "½ï",
+               "¿",
+               "½",
+               "link", 
+               "via", 
+               "mention",
+               "quot",
+               "amp",
+               "austin"
+              ]
+
+    stopwords_list +=  my_stop 
+    
+    tokens = tokenizer.tokenize(text)
+    stopwords_removed = [token for token in tokens if token not in stopwords_list]
+    return stopwords_removed
+    
+
+
+#master preprocessing function
+def Master_Pre_Vectorization(text_series):
+    text_series = lower_case_text(text_series)
+    text_series = text_series.apply(strip_links).apply(strip_all_entities)
+    text_series = text_series.apply(unidecode.unidecode).apply(html.unescape)
+    text_series =text_series.apply(process_text)
+    lemmatizer = WordNetLemmatizer()
+    text_series = text_series.apply(lambda x: [lemmatizer.lemmatize(word) for word in x])
+    return text_series.str.join(' ').copy()
+
+
+#function for intepreting results of models
+#takes in a pipeline and training data
+#and prints cross_validation scores 
+#and average of scores
+
+
+def cross_validation(pipeline, X_train, y_train):
+    scores = cross_val_score(pipeline, X_train, y_train)
+    agg_score = np.mean(scores)
+    print(f'{pipeline.steps[1][1]}: Average cross validation score is {agg_score}.')
+
+
+#function to fit pipeline
+#and return subplots 
+#that show normalized and 
+#regular confusion matrices
+#to easily intepret results
+def plot_confusion_matrices(pipe):
+    
+    pipe.fit(X_train, y_train)
+    y_true = y_test
+    y_pred = pipe.predict(X_test)
+
+    matrix_norm = confusion_matrix(y_true, y_pred, normalize='true') 
+    matrix = confusion_matrix(y_true, y_pred) 
+
+    fig, (ax1, ax2) = plt.subplots(ncols = 2,figsize=(10, 5))
+    sns.heatmap(matrix_norm,
+                annot=True, 
+                fmt='.2%', 
+                cmap='YlGn',
+                xticklabels=['Pos_predicted', 'Neg_predicted'],
+                yticklabels=['Positive Tweet', 'Negative_Tweet'],
+                ax=ax1)
+    sns.heatmap(matrix,
+                annot=True, 
+                cmap='YlGn',
+                fmt='d',
+                xticklabels=['Pos_predicted', 'Neg_predicted'],
+                yticklabels=['Positive Tweet', 'Negative_Tweet'],
+                ax=ax2)
+    plt.show();
 
-Final phase down -- you're absolutely crushing it! You've made it all the way through one of the toughest phase of this course. You must have an amazing brain in your head!
+    
+#loads a fitted model from memory 
+#returns confusion matrix and
+#returns normalized confusion matrix
+#calculated using given test data
+def confusion_matrix_bert_plots(model_path, X_test, y_test):
+    
+    model = load_model(model_path)
+    
+    y_pred = model.predict(X_test)
 
-<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-4-project/main/images/brain.gif'>
+    matrix_norm = confusion_matrix(y_test, y_pred, normalize='true')
 
-## Project Overview
+    matrix = confusion_matrix(y_test, y_pred)
 
-For this phase, you will choose a project that requires building one of these four models:
+    fig, (ax1, ax2) = plt.subplots(ncols = 2,figsize=(10, 5))
+    sns.heatmap(matrix_norm,
+                annot=True, 
+                fmt='.2%', 
+                cmap='YlGn',
+                xticklabels=['Pos_predicted', 'Neg_predicted'],
+                yticklabels=['Positive Tweet', 'Negative_Tweet'],
+                ax=ax1)
+    sns.heatmap(matrix,
+                annot=True, 
+                cmap='YlGn',
+                fmt='d',
+                xticklabels=['Pos_predicted', 'Neg_predicted'],
+                yticklabels=['Positive Tweet', 'Negative_Tweet'],
+                ax=ax2)
+    plt.show();
+```
 
-- Time Series Modeling
-- Recommendation System
-- Image Classification with Deep Learning
-- Natural Language Processing
 
-### The Data
+### Class Imbalance of Dataset
 
-We have provided a dataset suitable to each model, but you are also encouraged to source your own dataset. If you choose your own dataset, **run the dataset and business problem by your instructor for approval** before starting your project.
+The twitter data used for this project was collected from multiple sources from [CrowdFlower](https://appen.com/datasets-resource-center/). The project will only focus on binary sentiment (positive or negative). The total amount of tweets and associated class balances are show below. This distribution is further broken down by brand in the chart below the graphs.
 
-### How to Choose a Project
+![Class_Imbalance_Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pvpg3napakuqebqq4j3p.jpg)
 
-When choosing a project, consider:
 
-1. **Depth:** Choose a project that similar to what you want to do for your capstone project (Phase 5). This will allow you to practice those methods in a group setting before needing to use it independently. This will help you build a better Capstone project and a portfolio that demonstrates the ability to deeply learn and implement one modeling approach.
+#### Apple Positive vs Negative Tweet Counts
+positive    0.654194
+negative    0.345806
++++++++++++++++++++++++
+positive    2028
+negative    1072
++++++++++++++++++++++++++++++++++++++++++++++++++++
+#### Google Positive vs Negative Tweet Counts
+positive    740
+negative    136
++++++++++++++++++++++++
+positive    0.844749
+negative    0.155251
 
-2. **Breadth:** Choose a problem that you don't necessarily plan to use in your capstone project. This will allow you to develop applied experience with multiple modeling approaches. This will help you refine your areas of interest and build a portfolio that demonstrates the ability to learn and implement multiple modeling approaches.
 
-If you are feeling overwhelmed or behind, we recommend you choose Problem \#3: Image Classification with Deep Learning.
 
-### Problem 1: Time Series Modeling
+#### Some observations from exploring the data:
 
-If you choose the Time Series option, you will be forecasting real estate prices of various zip codes using data from [Zillow Research](https://www.zillow.com/research/data/). For this project, you will be acting as a consultant for a fictional real-estate investment firm. The firm has asked you what seems like a simple question:
+- Multiple complaints about issues with iphone 6 and its new touch id feature. Some googling unvealed an issue in which iphone 6 touch id button / home button would malfunction and heat up to high temperatures. 
+- many complaints about phone chargers 
+- high negative sentiment for iphone batteries 
+- Some users displeased with issues with apple news app
+- apple ipad 2 described as a design headache
+- Complaints about customer service
+- public image described as fascist 
 
-> What are the top 5 best zip codes for us to invest in?
 
-This may seem like a simple question at first glance, but there's more than a little ambiguity here that you'll have to think through in order to provide a solid recommendation. Should your recommendation be focused on profit margins only? What about risk? What sort of time horizon are you predicting against?  Your recommendation will need to detail your rationale and answer any sort of lingering questions like these in order to demonstrate how you define "best".
+Recommend to focus on improving battery life and quality. Improve phone accessories for charging and protecting battery. (apple did improvea lot on this since 2011 when many of the tweets were collected)
 
-There are many datasets on the [Zillow Research Page](https://www.zillow.com/research/data/), and making sure you have exactly what you need can be a bit confusing. For simplicity's sake, we have already provided the dataset for you in this repo -- you will find it in the file `time-series/zillow_data.csv`.
+Address technical issues with iphone 6 and apple news app crashing.
 
-The goal of this project is to have you complete a very common real-world task in regard to time series modeling. However, real world problems often come with a significant degree of ambiguity, which requires you to use your knowledge of statistics and data science to think critically about and answer. While the main task in this project is time series modeling, that isn't the overall goal -- it is important to understand that time series modeling is a tool in your toolbox, and the forecasts it provides you are what you'll use to answer important questions.
+Launch public relations campaign and give back to community to booster public image.
 
-In short, to pass this project, demonstrating the quality and thoughtfulness of your overall recommendation is at least as important as successfully building a time series model!
+Reasses training protocols for customer facing employees and ensure customer service is a cornerstone of Apple culture.
 
-#### Starter Jupyter Notebook
+## Data Modeling
 
-For this project, you will be provided with a Jupyter notebook, `time-series/starter_notebook.ipynb`, containing some starter code. If you inspect the Zillow dataset file, you'll notice that the datetimes for each sale are the actual column names -- this is a format you probably haven't seen before. To ensure that you're not blocked by preprocessing, we've provided some helper functions to help simplify getting the data into the correct format. You're not required to use this notebook or keep it in its current format, but we strongly recommend you consider making use of the helper functions so you can spend your time working on the parts of the project that matter.
+#### Classification Metric Understanding
+![Confusion_Matrix_Breakdown](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1sq4f1wehvjntw5lwbzt.jpg)
 
-#### Evaluation
+#### Confusion Matrix Description
 
-In addition to deciding which quantitative metric(s) you want to target (e.g. minimizing mean squared error), you need to start with a definition of "best investment".  Consider additional metrics like risk vs. profitability, or ROI yield.
+A true positive in the current context would be when the model correctly identifies a tweet with positive sentiment as positive. A true negative would be when the model correctly identifies a tweet with negative sentiment as containing negative sentiment. Both are important and both can be described by the overall accuracy of the model.
 
-### Problem 2: Recommendation System
+True negatives are really at the heart of the model, as this is the situation in which Apple would have a call to action. An appropriately identified tweet with negative sentiment can be properly examined using some simple NLP techniques to get a better understanding at what is upsetting customers involved with our brand and competitor's brands. Bigrams, quadgrams, and other word frequency analysis can help Apple to address brand concerns. 
 
-If you choose the Recommendation System option, you will be making movie recommendations based on the [MovieLens](https://grouplens.org/datasets/movielens/latest/) dataset from the GroupLens research lab at the University of Minnesota.  Unless you are planning to run your analysis on a paid cloud platform, we recommend that you use the "small" dataset containing 100,000 user ratings (and potentially, only a particular subset of that dataset).
+True positives are also important. Word frequency analysis can be used to summarize what consumers think Apple is doing right and also what consumers like about Apple's competitors. 
 
-Your task is to:
+There will always be some error involved in creating a predictive model. The model will incorrectly identify positive tweets as negative and vice versa. That means the error in any classification model in this context can be described by ratios of true positives or negatives vs false positives or negatives.
 
-> Build a model that provides top 5 movie recommendations to a user, based on their ratings of other movies.
+A false positive would occur when the model incorrectly identifies a tweet containing negative sentiment as a tweet that contains positive sentiment. Given the context of the business model, this would mean more truly negative sentiment will be left out of analyzing key word pairs for negative tweets. This could be interpreted as loss in analytical ability for what we care about most given the buisness problem: making informed decisions from information directly from consumers in the form of social media text. Minimizing false positives is very important.
 
-The MovieLens dataset is a "classic" recommendation system dataset, that is used in numerous academic papers and machine learning proofs-of-concept.  You will need to create the specific details about how the user will provide their ratings of other movies, in addition to formulating a more specific business problem within the general context of "recommending movies".
+False negatives are also important to consider. A false negative would occur when the model incorrectly identifies a tweet that contains positive sentiment as one that contains negative sentiment. Given the context of the business problem, this would mean extra noise added to the data when trying to isolate for negative sentiment of brand/product. 
 
-#### Collaborative Filtering
+In summary, overall accuracy of the model and a reduction of both false negatives and false positives are the most important metrics to consider when developing a the twitter sentiment analysis model.
 
-At minimum, your recommendation system must use collaborative filtering.  If you have time, consider implementing a hybrid approach, e.g. using collaborative filtering as the primary mechanism, but using content-based filtering to address the [cold start problem](https://en.wikipedia.org/wiki/Cold_start_(computing)).
 
-#### Evaluation
 
-The MovieLens dataset has explicit ratings, so achieving some sort of evaluation of your model is simple enough.  But you should give some thought to the question of metrics. Since the rankings are ordinal, we know we can treat this like a regression problem.  But when it comes to regression metrics there are several choices: RMSE, MAE, etc.  [Here](http://fastml.com/evaluating-recommender-systems/) are some further ideas.
 
-### Problem 3: Image Classification with Deep Learning
 
-If you choose this option, you'll put everything you've learned together to build a deep neural network that trains on a large dataset for classification on a non-trivial task.  In this case, using x-ray images of pediatric patients to identify whether or not they have pneumonia.  The dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/3), although there is also a version on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) that may be easier to use.
 
-Your task is to:
+For comparison, I trained four different supervised learning classifiers using term frequency–inverse document frequency(TF-IDF) vectorized preprocessed tweet data. While the vectorization will not be needed for the BERT classifier, it is needed for these supervised classifiers. 
 
-> Build a model that can classify whether a given patient has pneumonia, given a chest x-ray image.
+[TF-IDF wiki](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 
-#### Aim for a Proof of Concept
+[TfidfVectorize sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
 
-With Deep Learning, data is king -- the more of it, the better. However, the goal of this project isn't to build the best model possible -- it's to demonstrate your understanding by building a model that works. You should try to avoid datasets and model architectures that won't run in reasonable time on your own machine. For many problems, this means downsampling your dataset and only training on a portion of it. Once you're absolutely sure that you've found the best possible architecture and other hyperparameters for your model, then consider training your model on your entire dataset overnight (or, as larger portion of the dataset that will still run in a feasible amount of time).
+[MultinomialNB documentation](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB)
 
-At the end of the day, we want to see your thought process as you iterate and improve on a model. A project that achieves a lower level of accuracy but has clearly iterated on the model and the problem until it found the best possible approach is more impressive than a model with high accuracy that did no iteration. We're not just interested in seeing you finish a model -- we want to see that you understand it, and can use this knowledge to try and make it even better!
+[Random Forest documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
-#### Evaluation
+[Balanced Random Forest Classifier Documentation](https://imbalanced-learn.org/stable/references/generated/imblearn.ensemble.BalancedRandomForestClassifier.html)
 
-Evaluation is fairly straightforward for this project.  But you'll still need to think about which metric to use and about how best to cross-validate your results.
+[XGBoosted Trees Documentation](https://xgboost.readthedocs.io/en/stable/python/python_intro.html)
 
-### Problem 4: Natural Language Processing (NLP)
 
-If you choose this option, you'll build an NLP model to analyze Twitter sentiment about Apple and Google products. The dataset comes from CrowdFlower via [data.world](https://data.world/crowdflower/brands-and-product-emotions). Human raters rated the sentiment in over 9,000 Tweets as positive, negative, or neither.
+### Multinomial Naive Bayes Base Model Performance
+![NB_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w2ntksg37392a4ch22u4.png)
 
-Your task is to:
+### Random Forest Classifier Base Model Performance
+![RF_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/98t4fd8tg87z7amk3oh8.png)
 
-> Build a model that can rate the sentiment of a Tweet based on its content.
+### Balanced Random Forest Classifier Base Model Performance
+![Balanced_RF_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tec244erxdn4s5rf059h.png)
 
-#### Aim for a Proof of Concept
+### XGBoosted Random Forest Classifier Base Model Performance
+![XGBoosted_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bamwgzjotqhdess6ej0h.png)
 
-There are many approaches to NLP problems - start with something simple and iterate from there. For example, you could start by limiting your analysis to positive and negative Tweets only, allowing you to build a binary classifier. Then you could add in the neutral Tweets to build out a multiclass classifier. You may also consider using some of the more advanced NLP methods in the Mod 4 Appendix.
+Now that supervised learning models have been built, trained, and tuned without any pre-training, our focus will now turn to transfer learning using Bidirectional Encoder Representations from Transformers(BERT), developed by Google. BERT is a transformer-based machine learning technique for natural language processing pre-training. BERTBASE models are pre-trained from unlabeled data extracted from the BooksCorpus with 800M words and English Wikipedia with 2,500M words. 
 
-#### Evaluation
+[Click Here for more from Wikipedia](https://en.wikipedia.org/wiki/BERT_(language_model))
 
-Evaluating multiclass classifiers can be trickier than binary classifiers because there are multiple ways to mis-classify an observation, and some errors are more problematic than others. Use the business problem that your NLP project sets out to solve to inform your choice of evaluation metrics.
+[GitHub for BERT release code](https://github.com/google-research/bert)
 
-### Sourcing Your Own Data
+Sckit-learn wrapper provided by Charles Nainan. [GitHub of Scikit Learn BERT wrapper](https://github.com/charles9n/bert-sklearn). 
 
-Sourcing new data is a valuable skill for data scientists, but it requires a great deal of care. An inappropriate dataset or an unclear business problem can lead you spend a lot of time on a project that delivers underwhelming results. The guidelines below will help you complete a project that demonstrates your ability to engage in the full data science process.
+This scikit-learn wrapper is used to finetune Google's BERT model and is built on the huggingface pytorch port.
 
-Your dataset must be...
+The BERT classifier is now ready to be fit and trained on data in the same way you would any sklearn model. 
 
-1. **Appropriate for one of this project's models.** These are time series, recommendation systems, deep learning, or natural language processing.   
+See the code block below for a quick example.
+```
+bert_1 = BertClassifier(do_lower_case=True,
+                        train_batch_size=32,
+                        max_seq_length=50
+                       )
 
-2. **Usable to solve a specific business problem.** This solution must rely on your model.
+bert_1.fit(X_train, y_train)
 
-3. **Somewhat complex.** It should contain thousands of rows and features that require creativity to use.
+y_pred = bert_1.predict(X_test)
 
-4. **Unfamiliar.** It can't be one we've already worked with during the course or that is commonly used for demonstration purposes (e.g. MNIST).
+```
 
-5. **Manageable.** Stick to datasets that you can model using the techniques introduced in Phase 4.
+Four models were trained and stored into memory. See the code bock below for the chosen parameters in every model.
 
-Once you've sourced your own dataset and identified the business problem you want to solve with it, you must to **run them by your instructor for approval**.
+```
+"""
+The first model was fitted as seen commeted out below 
+after some trial and error to determine an appropriate
+max_seq_length given my computer's capibilities. 
 
-#### Problem First, or Data First?
+"""
 
-There are two ways that you can source your own dataset: **_Problem First_** or **_Data First_**. The less time you have to complete the project, the more strongly we recommend a Data First approach to this project.
 
-**_Problem First_**: Start with a problem that you are interested in that you could potentially solve using one of the four project models. Then look for data that you could use to solve that problem. This approach is high-risk, high-reward: Very rewarding if you are able to solve a problem you are invested in, but frustrating if you end up sinking lots of time in without finding appropriate data. To mitigate the risk, set a firm limit for the amount of time you will allow yourself to look for data before moving on to the Data First approach.
+# bert_1 = BertClassifier(do_lower_case=True,
+#                       train_batch_size=32,
+#                       max_seq_length=50
+#                      )
 
-**_Data First_**: Take a look at some of the most popular internet repositories of cool data sets we've listed below. If you find a data set that's particularly interesting for you, then it's totally okay to build your problem around that data set.
 
-There are plenty of amazing places that you can get your data from. We recommend you start looking at data sets in some of these resources first:
 
-* [UCI Machine Learning Datasets Repository](https://archive.ics.uci.edu/ml/datasets.php)
-* [Kaggle Datasets](https://www.kaggle.com/datasets)
-* [Awesome Datasets Repo on Github](https://github.com/awesomedata/awesome-public-datasets)
-* [Tensorflow Datasets](https://www.tensorflow.org/datasets/catalog/overview)
+"""
+My second model contains 2 hidden layers with 600 neurons. 
+It only passes over the corpus one time when learning.
+It trains fast and gives impressive results.
 
-## The Deliverables
+"""
 
-There are three deliverables for this project:
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+# bert_2 = BertClassifier(do_lower_case=True,
+#                       train_batch_size=32,
+#                       max_seq_length=50,
+#                       num_mlp_hiddens=500,
+#                       num_mlp_layers=2,
+#                       epochs=1
+#                      )
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
+"""
+My third bert model has 600 neurons still but
+only one hidden layer. However, the model
+passes over the corpus 4 times in total
+while learning.
 
-### Key Points
+"""
 
-* **Choose your project quickly.** We've given you a lot of choices - don't get stuck spending too much time choosing which project to do. Give yourself a firm time limit for picking a project (e.g. 2 hours) so you can get on with making something great. Don't worry about picking the perfect project - remember that you will get to do a new, larger Capstone project very soon!
+# bert_3 = BertClassifier(do_lower_case=True,
+#                       train_batch_size=32,
+#                       max_seq_length=50,
+#                       num_mlp_hiddens=600,
+#                       num_mlp_layers=1,
+#                       epochs=4
+#                      )
 
-* **Your Jupyter Notebook should demonstrate an iterative approach to modeling.** This means that you begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. This is a great way to add narrative structure to your notebook, especially if you compare model performance across each iteration.
+"""
+My fourth bert model has 750 neurons and 
+two hidden layers. The corpus also gets
+transversed four times in total while 
+learning.
 
-* **You must choose and implement an appropriate validation strategy.** This is one of the trickiest parts of machine learning models, especially for models that don't lend themselves easily to traditional cross-validation (e.g. time series & recommendation systems).
+"""
 
-## Getting Started
+# bert_4 = BertClassifier(do_lower_case=True,
+#                       train_batch_size=32,
+#                       max_seq_length=50,
+#                       num_mlp_hiddens=750,
+#                       num_mlp_layers=2,
+#                       epochs=4
+#                      )
+```
 
-Create a new repository for your project to get started. We recommend structuring your project repository similar to the structure in [the Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template). You can do this either by creating a new fork of that repository to work in or by building a new repository from scratch that mimics that structure.
 
-## Project Submission and Review
+#### Bert 1 Results
+![Bert1_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bk45s73uuu3g3uq32gh6.jpg)
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+#### Bert 2 Results
+![Bert2_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zkf97e7mq70s0t3cn6ae.jpg)
 
-## Summary
+#### Bert 3 Results
+![Bert3_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9h1fzlqeo4hzrc0u2odq.jpg)
 
-This project is your chance to show off your data science prowess with some advanced machine learning algorithms. Now that you've gone through all of the core course content, we're excited to see what you are able to do!
+#### Bert 4 Results
+![Bert4_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bhmnbot0ba1m2t4yt7ga.jpg)
+
+As you can see, all of my BERT models trained on a relatively small amount of data achieved much better results than any of the other classifiers. The BertClassifier with 1 hidden layer, 600 neurons, and 4 epochs performed the best, predicted over 93% of positive tweets correctly and 80% of negative tweets correctly on hold out test data.
+
+
+```
+bert_3 = BertClassifier(do_lower_case=True,
+                        train_batch_size=32,
+                        max_seq_length=50,
+                        num_mlp_hiddens=600,
+                        num_mlp_layers=1,
+                        epochs=4
+                       )
+```
+
+
+### Modeling
+
+Logistic Regression, Random Forest Classification, and XGBoost Classification models were created and tested. Random search grids were used to narrow down parameters to run a full grid search to tune hyperparamters for each type of model. Please visit the modeling notebook for more information.  
+
+## Evaluation
+
+My random forest models outperformed my best logistic regression and XGSBoost models in regards to the metrics that are most important given the business problem at hand.
+
+The best random forest model had a great balance between accuracy, precision, and f1-score. 
+
+11.63% of pumps would be misclassified as functional using my best model. This means that 11.63% of the pumps would go untreated if this classifier was deployed to conduct predictive maintenance. However, it correctly identifies a high number of functional pumps correctly, which would save a lot of valuable resources, time and money, and it also identifies a large number of non-functional pumps correctly. Only a8.05% of functional pumps would be incorrectly identified as non-functional. This is the resource/time/money sink of my model, so keeping it so low is great.  
+
+![Confusion Matrix Description](images/best_rfc_matrix.png)
+
+## Conclusions
+I believe that my best classification model provides a powerful enough predictive ability to prove very valuable to the Ministry of Water. The amount of resources saved, the relatively low number of misclassified functional pumps, and the elimination of the need to physically sweep the functionality of all pumps can bring access to potable drinking water to a larger number of communities than before without predictive maintenance.
+
+
+
+Author Name: Dylan Dey
+
+Email: ddey2985@gmail.com
+
+Github: [Dddey Github](https://github.com/ddey117/Tanzanian_Water_Pump_Classification)
+
+
+
+## For More Information
+
+Please review our full analysis in the [Exploratory Jupyter Notebook](./Tzn_Wtr_Pump_Data_Exploration.ipynb) and the [Modeling Jupyter Notebook](Water_Pump_Modeling.ipynb) or our [presentation](./Project_Presentation.pdf).
+
+For any additional questions, please contact:
+
+Author Name: Dylan Dey
+
+Email: ddey2985@gmail.com
+
+Github: [Dddey Github](https://github.com/ddey117/Tanzanian_Water_Pump_Classification)
+
+## Repository Structure
+
+Describe the structure of your repository and its contents, for example:
+
+```
+├── README.md                             <- The top-level README for reviewers of this project
+├── Tzn_Wtr_Pump_Data_Exploration.ipynb   <- exploratory notebook
+├── Data_Exploration_Notebook.pdf         <- PDF version of exploratory notebook
+├── Water_Pump_Modeling.ipynb             <- modeling notebook
+├── Water_Pump_Modeling.pdf               <- modeling notebook pdf
+├── Project_Presentation.pdf              <- project presentation pdf
+├── data                                  <- Both sourced externally and generated from code
+└── images                                <- Both sourced externally and generated from code
+```
