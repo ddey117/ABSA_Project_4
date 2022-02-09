@@ -1,0 +1,2002 @@
+01/26/2022 21:50:34 - INFO - root -   Loading model:
+BertClassifier()
+01/26/2022 22:06:30 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50)
+01/26/2022 22:08:00 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=100)
+01/26/2022 22:08:26 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50)
+01/26/2022 22:12:37 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt not found in cache, downloading to /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmp00fkqbf4
+01/26/2022 22:12:38 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   copying /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmp00fkqbf4 to cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/26/2022 22:12:38 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   creating metadata file for /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/26/2022 22:12:38 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   removing temp file /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmp00fkqbf4
+01/26/2022 22:12:38 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/26/2022 22:12:38 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin not found in cache, downloading to /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxu9yz57v
+01/26/2022 22:16:56 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   copying /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxu9yz57v to cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   creating metadata file for /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   removing temp file /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxu9yz57v
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json not found in cache, downloading to /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxovcxg6d
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   copying /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxovcxg6d to cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   creating metadata file for /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.file_utils -   removing temp file /var/folders/5w/k2n6qlf13mvb5l8ccjcbjdlw0000gn/T/tmpxovcxg6d
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/26/2022 22:16:58 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/26/2022 22:17:01 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.weight', 'mlp.bias']
+01/26/2022 22:17:01 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+01/26/2022 22:17:01 - INFO - root -   train data size: 2952, validation data size: 328
+01/26/2022 22:17:01 - INFO - root -   Number of train optimization steps is : 279
+01/26/2022 22:35:14 - INFO - root -   Epoch 1, Train loss: 0.4389, Val loss: 0.2984, Val accy: 89.94%
+01/26/2022 22:52:55 - INFO - root -   Epoch 2, Train loss: 0.2313, Val loss: 0.2472, Val accy: 90.55%
+01/26/2022 23:10:38 - INFO - root -   Epoch 3, Train loss: 0.1203, Val loss: 0.2761, Val accy: 90.85%
+01/27/2022 10:29:26 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+01/27/2022 10:34:03 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+01/27/2022 10:34:28 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 10:34:30 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+01/27/2022 10:44:57 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 10:46:50 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 10:49:15 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50, num_mlp_hiddens=550,
+               num_mlp_layers=2)
+01/27/2022 10:49:37 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/27/2022 10:49:38 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/27/2022 10:49:38 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/27/2022 10:49:38 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 10:49:40 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+01/27/2022 10:49:40 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+01/27/2022 10:49:40 - INFO - root -   train data size: 2952, validation data size: 328
+01/27/2022 10:49:40 - INFO - root -   Number of train optimization steps is : 276
+01/27/2022 11:09:17 - INFO - root -   Epoch 1, Train loss: 0.4684, Val loss: 0.4685, Val accy: 79.88%
+01/27/2022 11:45:52 - INFO - root -   Epoch 2, Train loss: 0.2302, Val loss: 0.4232, Val accy: 83.84%
+01/27/2022 12:04:36 - INFO - root -   Epoch 3, Train loss: 0.1273, Val loss: 0.4142, Val accy: 85.06%
+01/27/2022 12:14:17 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=100,
+               num_mlp_hiddens=750, num_mlp_layers=2)
+01/27/2022 12:14:20 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/27/2022 12:14:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/27/2022 12:14:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/27/2022 12:14:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 12:14:22 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+01/27/2022 12:14:22 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+01/27/2022 12:14:22 - INFO - root -   train data size: 2952, validation data size: 328
+01/27/2022 12:14:22 - INFO - root -   Number of train optimization steps is : 368
+01/27/2022 13:03:27 - INFO - root -   Epoch 1, Train loss: 0.4576, Val loss: 0.3991, Val accy: 83.23%
+01/27/2022 14:01:21 - INFO - root -   Epoch 2, Train loss: 0.2202, Val loss: 0.3921, Val accy: 84.15%
+01/27/2022 14:03:03 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=100,
+               num_mlp_hiddens=450, num_mlp_layers=2)
+01/27/2022 14:03:05 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/27/2022 14:03:05 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/27/2022 14:03:05 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/27/2022 14:03:05 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 14:03:07 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+01/27/2022 14:03:07 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+01/27/2022 14:03:07 - INFO - root -   train data size: 2952, validation data size: 328
+01/27/2022 14:03:07 - INFO - root -   Number of train optimization steps is : 368
+01/27/2022 14:07:09 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=50,
+               num_mlp_hiddens=450, num_mlp_layers=2)
+01/27/2022 14:07:10 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+01/27/2022 14:07:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+01/27/2022 14:07:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+01/27/2022 14:07:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/27/2022 14:07:13 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+01/27/2022 14:07:13 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+01/27/2022 14:07:13 - INFO - root -   train data size: 2952, validation data size: 328
+01/27/2022 14:07:13 - INFO - root -   Number of train optimization steps is : 368
+01/27/2022 14:26:29 - INFO - root -   Epoch 1, Train loss: 0.4783, Val loss: 0.3248, Val accy: 88.41%
+01/27/2022 14:44:31 - INFO - root -   Epoch 2, Train loss: 0.2378, Val loss: 0.3661, Val accy: 86.28%
+01/27/2022 15:02:42 - INFO - root -   Epoch 3, Train loss: 0.1113, Val loss: 0.3786, Val accy: 87.50%
+01/27/2022 15:21:11 - INFO - root -   Epoch 4, Train loss: 0.0639, Val loss: 0.3833, Val accy: 88.11%
+01/28/2022 14:27:39 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=450, num_mlp_layers=2)
+01/28/2022 15:06:47 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+01/28/2022 15:06:49 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=450, num_mlp_layers=2)
+01/28/2022 16:14:34 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=450, num_mlp_layers=2)
+02/01/2022 17:27:06 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50, num_mlp_hiddens=400,
+               num_mlp_layers=1)
+02/01/2022 17:27:42 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=2, max_seq_length=50,
+               num_mlp_hiddens=400, num_mlp_layers=1)
+02/01/2022 17:27:46 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=2, max_seq_length=50,
+               num_mlp_hiddens=400, num_mlp_layers=1)
+02/01/2022 17:28:24 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/01/2022 17:28:25 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/01/2022 17:28:25 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/01/2022 17:28:25 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 17:28:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.weight', 'mlp.2.bias']
+02/01/2022 17:28:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/01/2022 17:28:27 - INFO - root -   train data size: 2952, validation data size: 328
+02/01/2022 17:28:27 - INFO - root -   Number of train optimization steps is : 184
+02/01/2022 17:46:35 - INFO - root -   Epoch 1, Train loss: 0.4293, Val loss: 0.2565, Val accy: 88.72%
+02/01/2022 18:08:08 - INFO - root -   Epoch 2, Train loss: 0.2118, Val loss: 0.2467, Val accy: 89.94%
+02/01/2022 18:11:23 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=2, max_seq_length=50,
+               num_mlp_hiddens=400, num_mlp_layers=2)
+02/01/2022 18:11:24 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/01/2022 18:11:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/01/2022 18:11:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/01/2022 18:11:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 18:11:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+02/01/2022 18:11:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/01/2022 18:11:27 - INFO - root -   train data size: 2952, validation data size: 328
+02/01/2022 18:11:27 - INFO - root -   Number of train optimization steps is : 184
+02/01/2022 18:13:38 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=1, max_seq_length=50,
+               num_mlp_layers=2)
+02/01/2022 18:13:39 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/01/2022 18:13:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/01/2022 18:13:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/01/2022 18:13:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 18:13:42 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+02/01/2022 18:13:42 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/01/2022 18:13:42 - INFO - root -   train data size: 2952, validation data size: 328
+02/01/2022 18:13:42 - INFO - root -   Number of train optimization steps is : 92
+02/01/2022 18:31:21 - INFO - root -   Epoch 1, Train loss: 0.4299, Val loss: 0.3663, Val accy: 87.20%
+02/01/2022 20:16:28 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/01/2022 20:16:29 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 20:16:31 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=450, num_mlp_layers=2)
+02/01/2022 20:16:32 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 20:16:34 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/01/2022 20:36:14 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=50,
+               num_mlp_hiddens=600, num_mlp_layers=1)
+02/01/2022 20:36:22 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=50,
+               num_mlp_hiddens=600, num_mlp_layers=1)
+02/01/2022 20:36:38 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/01/2022 20:36:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/01/2022 20:36:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/01/2022 20:36:39 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 20:36:41 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.weight', 'mlp.2.bias']
+02/01/2022 20:36:41 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/01/2022 20:36:41 - INFO - root -   train data size: 2952, validation data size: 328
+02/01/2022 20:36:41 - INFO - root -   Number of train optimization steps is : 368
+02/01/2022 20:54:44 - INFO - root -   Epoch 1, Train loss: 0.4572, Val loss: 0.3336, Val accy: 87.20%
+02/01/2022 21:12:44 - INFO - root -   Epoch 2, Train loss: 0.2223, Val loss: 0.2760, Val accy: 87.50%
+02/01/2022 21:30:18 - INFO - root -   Epoch 3, Train loss: 0.1040, Val loss: 0.2974, Val accy: 88.11%
+02/01/2022 21:47:49 - INFO - root -   Epoch 4, Train loss: 0.0534, Val loss: 0.3142, Val accy: 88.41%
+02/01/2022 21:54:23 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=5, max_seq_length=50,
+               num_mlp_hiddens=750, num_mlp_layers=1)
+02/01/2022 21:54:23 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/01/2022 21:54:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/01/2022 21:54:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/01/2022 21:54:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/01/2022 21:54:26 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.weight', 'mlp.2.bias']
+02/01/2022 21:54:26 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/01/2022 21:54:26 - INFO - root -   train data size: 2952, validation data size: 328
+02/01/2022 21:54:26 - INFO - root -   Number of train optimization steps is : 460
+02/01/2022 22:11:45 - INFO - root -   Epoch 1, Train loss: 0.4805, Val loss: 0.2830, Val accy: 90.24%
+02/01/2022 22:29:15 - INFO - root -   Epoch 2, Train loss: 0.2428, Val loss: 0.2601, Val accy: 90.55%
+02/01/2022 22:46:21 - INFO - root -   Epoch 3, Train loss: 0.1158, Val loss: 0.2710, Val accy: 89.33%
+02/01/2022 23:03:28 - INFO - root -   Epoch 4, Train loss: 0.0477, Val loss: 0.3756, Val accy: 88.72%
+02/01/2022 23:20:42 - INFO - root -   Epoch 5, Train loss: 0.0290, Val loss: 0.3477, Val accy: 90.55%
+02/02/2022 12:14:31 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=5, max_seq_length=50,
+               num_mlp_hiddens=750, num_mlp_layers=1)
+02/02/2022 12:14:31 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/02/2022 12:14:32 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/02/2022 12:14:32 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/02/2022 12:14:32 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 12:14:34 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.weight', 'mlp.2.bias']
+02/02/2022 12:14:34 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/02/2022 12:14:34 - INFO - root -   train data size: 2952, validation data size: 328
+02/02/2022 12:14:34 - INFO - root -   Number of train optimization steps is : 460
+02/02/2022 12:32:51 - INFO - root -   Epoch 1, Train loss: 0.4805, Val loss: 0.2830, Val accy: 90.24%
+02/02/2022 12:50:38 - INFO - root -   Epoch 2, Train loss: 0.2428, Val loss: 0.2601, Val accy: 90.55%
+02/02/2022 13:08:20 - INFO - root -   Epoch 3, Train loss: 0.1158, Val loss: 0.2710, Val accy: 89.33%
+02/02/2022 13:39:20 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/02/2022 13:39:21 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 13:39:23 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/02/2022 13:39:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 13:39:25 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/02/2022 13:55:13 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 13:55:14 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/02/2022 13:57:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 13:57:13 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/02/2022 13:58:37 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 13:58:39 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/02/2022 14:00:03 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 14:00:05 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/02/2022 14:02:16 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=2, max_seq_length=50,
+               num_mlp_hiddens=750, num_mlp_layers=1)
+02/02/2022 14:02:16 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/02/2022 14:02:17 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/02/2022 14:02:17 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/02/2022 14:02:17 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 14:02:19 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.weight', 'mlp.2.bias']
+02/02/2022 14:02:19 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/02/2022 14:02:19 - INFO - root -   train data size: 2952, validation data size: 328
+02/02/2022 14:02:19 - INFO - root -   Number of train optimization steps is : 184
+02/02/2022 14:26:16 - INFO - root -   Epoch 1, Train loss: 0.4555, Val loss: 0.3391, Val accy: 83.84%
+02/02/2022 14:44:10 - INFO - root -   Epoch 2, Train loss: 0.2475, Val loss: 0.2697, Val accy: 89.63%
+02/02/2022 14:45:18 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 14:45:20 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=2, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=1)
+02/02/2022 14:46:43 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 14:46:45 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=2, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=1)
+02/02/2022 14:49:17 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=2, max_seq_length=50,
+               num_mlp_hiddens=750, num_mlp_layers=2)
+02/02/2022 14:49:18 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/02/2022 14:49:18 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/02/2022 14:49:18 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/02/2022 14:49:18 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 14:49:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+02/02/2022 14:49:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/02/2022 14:49:20 - INFO - root -   train data size: 2952, validation data size: 328
+02/02/2022 14:49:20 - INFO - root -   Number of train optimization steps is : 184
+02/02/2022 15:07:08 - INFO - root -   Epoch 1, Train loss: 0.4442, Val loss: 0.5470, Val accy: 73.48%
+02/02/2022 15:19:11 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, epochs=4, max_seq_length=50,
+               num_mlp_hiddens=750, num_mlp_layers=2)
+02/02/2022 15:19:11 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/02/2022 15:19:12 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/02/2022 15:19:12 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/02/2022 15:19:12 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 15:19:13 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.0.weight', 'mlp.0.bias', 'mlp.0.running_mean', 'mlp.0.running_var', 'mlp.1.0.weight', 'mlp.1.0.bias', 'mlp.1.1.weight', 'mlp.1.1.bias', 'mlp.1.1.running_mean', 'mlp.1.1.running_var', 'mlp.2.0.weight', 'mlp.2.0.bias', 'mlp.2.1.weight', 'mlp.2.1.bias', 'mlp.2.1.running_mean', 'mlp.2.1.running_var', 'mlp.3.weight', 'mlp.3.bias']
+02/02/2022 15:19:13 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/02/2022 15:19:13 - INFO - root -   train data size: 2952, validation data size: 328
+02/02/2022 15:19:13 - INFO - root -   Number of train optimization steps is : 368
+02/02/2022 15:36:28 - INFO - root -   Epoch 1, Train loss: 0.4647, Val loss: 0.5010, Val accy: 77.13%
+02/02/2022 15:53:44 - INFO - root -   Epoch 2, Train loss: 0.2322, Val loss: 0.3765, Val accy: 85.37%
+02/02/2022 16:10:58 - INFO - root -   Epoch 3, Train loss: 0.1118, Val loss: 0.4806, Val accy: 86.28%
+02/02/2022 16:28:20 - INFO - root -   Epoch 4, Train loss: 0.0550, Val loss: 0.5068, Val accy: 85.37%
+02/02/2022 16:28:31 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 16:28:33 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/02/2022 17:05:58 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/02/2022 17:07:24 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 17:07:26 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/02/2022 17:17:22 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 17:17:25 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/02/2022 17:20:37 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 17:20:40 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/02/2022 17:22:04 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 17:22:06 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/02/2022 17:23:29 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/02/2022 17:23:32 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/03/2022 12:22:33 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50)
+02/03/2022 12:25:18 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:25:22 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/03/2022 12:25:23 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:25:24 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/03/2022 12:25:25 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:25:28 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/03/2022 12:32:20 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:32:22 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/03/2022 12:32:23 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:32:26 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/03/2022 12:32:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:32:29 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/03/2022 12:42:07 - INFO - root -   Loading model:
+BertClassifier(do_lower_case=True, max_seq_length=50)
+02/03/2022 12:42:07 - INFO - bert_sklearn.model.pytorch_pretrained.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/03/2022 12:42:08 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+02/03/2022 12:42:08 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /Users/dylandey/.cache/torch/pytorch_pretrained_bert/distributed_-1/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+02/03/2022 12:42:08 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 12:42:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights of BertPlusMLP not initialized from pretrained model: ['mlp.weight', 'mlp.bias']
+02/03/2022 12:42:10 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Weights from pretrained model not used in BertPlusMLP: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+02/03/2022 12:42:10 - INFO - root -   train data size: 2952, validation data size: 328
+02/03/2022 12:42:10 - INFO - root -   Number of train optimization steps is : 279
+02/03/2022 13:00:43 - INFO - root -   Epoch 1, Train loss: 0.4389, Val loss: 0.2984, Val accy: 89.94%
+02/03/2022 13:18:47 - INFO - root -   Epoch 2, Train loss: 0.2313, Val loss: 0.2472, Val accy: 90.55%
+02/03/2022 13:36:08 - INFO - root -   Epoch 3, Train loss: 0.1203, Val loss: 0.2761, Val accy: 90.85%
+02/03/2022 17:34:27 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 17:34:28 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/03/2022 17:35:58 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 17:36:00 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/03/2022 17:37:32 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 17:37:33 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/03/2022 17:39:01 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/03/2022 17:39:03 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
+02/08/2022 16:51:46 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, label_list=array([0, 1]), max_seq_length=50)
+02/08/2022 16:53:15 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/08/2022 16:53:17 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused13]', 14), ('[unused14]', 15),
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=1, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_layers=2)
+02/08/2022 16:54:45 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/08/2022 16:54:48 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=600, num_mlp_layers=1)
+02/08/2022 16:56:17 - INFO - bert_sklearn.model.pytorch_pretrained.modeling -   Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+02/08/2022 16:56:19 - INFO - root -   Loading model:
+BertClassifier(bert_config_json={'architectures': ['BertForMaskedLM'],
+                                 'attention_probs_dropout_prob': 0.1,
+                                 'hidden_act': 'gelu',
+                                 'hidden_dropout_prob': 0.1, 'hidden_size': 768,
+                                 'initializer_range': 0.02,
+                                 'intermediate_size': 3072,
+                                 'layer_norm_eps': 1e-12,
+                                 'max_position_embeddings': 512,
+                                 'model_type': 'bert',
+                                 'num_attention_heads': 12,
+                                 'num_hidden_layers': 12, 'pad_token_...
+                                       ('[unused15]', 16), ('[unused16]', 17),
+                                       ('[unused17]', 18), ('[unused18]', 19),
+                                       ('[unused19]', 20), ('[unused20]', 21),
+                                       ('[unused21]', 22), ('[unused22]', 23),
+                                       ('[unused23]', 24), ('[unused24]', 25),
+                                       ('[unused25]', 26), ('[unused26]', 27),
+                                       ('[unused27]', 28), ('[unused28]', 29), ...]),
+               do_lower_case=True, epochs=4, label_list=array([0, 1]),
+               max_seq_length=50, num_mlp_hiddens=750, num_mlp_layers=2)
