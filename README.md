@@ -330,7 +330,7 @@ y_pred = bert_1.predict(X_test)
 
 ```
 
-Four models were trained and stored into memory. See the code bock below for the chosen parameters in every model.
+Four models were trained and stored locally. See the code block below for the chosen parameters in every model.
 
 ```
 """
@@ -410,8 +410,17 @@ learning.
 #### Bert 4 Results
 ![Bert4_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bhmnbot0ba1m2t4yt7ga.jpg)
 
-As you can see, all of my BERT models trained on a relatively small amount of data achieved much better results than any of the other classifiers. The BertClassifier with 1 hidden layer, 600 neurons, and 4 epochs performed the best, predicted over 93% of positive tweets correctly and 80% of negative tweets correctly on hold out test data.
 
+
+## Evaluation
+
+The best performing model was the  BERT Classifier with 4 epochs, one hidden layer, and 600 neurons. This classifier was able to correctly predict over 80% of negative tweets correctly, which is really impressive given the imbalance in the original data. It also correctly identifies positive tweets nearly 94% of the time.
+
+
+##### BERT Classifier Confusion Matrix
+![Bert3_Matrix](images/bert3_matrix.jpg)
+
+#### BERT Classifier Paramaters
 
 ```
 bert_3 = BertClassifier(do_lower_case=True,
@@ -424,33 +433,28 @@ bert_3 = BertClassifier(do_lower_case=True,
 ```
 
 
-#FIX ALL THE STUFF BELOW THIS
-## Evaluation
 
-My random forest models outperformed my best logistic regression and XGSBoost models in regards to the metrics that are most important given the business problem at hand.
+While the BERT classifier performed the best, the balanced random forest classifier has moderate predictive abilities using sparse vectors.   
 
-The best random forest model had a great balance between accuracy, precision, and f1-score. 
+##### Balanced Random Forest Confusion Matrix
+![Balanced_RandomForest_Matrix](images/best_balanced_rf_matrix.jpg)
 
-11.63% of pumps would be misclassified as functional using my best model. This means that 11.63% of the pumps would go untreated if this classifier was deployed to conduct predictive maintenance. However, it correctly identifies a high number of functional pumps correctly, which would save a lot of valuable resources, time and money, and it also identifies a large number of non-functional pumps correctly. Only a8.05% of functional pumps would be incorrectly identified as non-functional. This is the resource/time/money sink of my model, so keeping it so low is great.  
+## Conclusions 
 
-![Confusion Matrix Description](images/best_rfc_matrix.png)
+- Either classifier could be used to predict sentiment on new brand-centric social media data for the company's own products or that of a competitor.
 
-## Conclusions
-I believe that my best classification model provides a powerful enough predictive ability to prove very valuable to the Ministry of Water. The amount of resources saved, the relatively low number of misclassified functional pumps, and the elimination of the need to physically sweep the functionality of all pumps can bring access to potable drinking water to a larger number of communities than before without predictive maintenance.
+### Future Work
+
+- Use the BERT classifier to predict the sentiment on new unlabeled twitter data filtered for product or brand of interest (Apple/Google) from another source to find more actionable insights to further proof of concept.
 
 
-
-Author Name: Dylan Dey
-
-Email: ddey2985@gmail.com
-
-Github: [Dddey Github](https://github.com/ddey117/Tanzanian_Water_Pump_Classification)
+- Use the BERT classifier to predict the sentiment on new twitter data to help balance exisiting dataset and retrain the other models.
 
 
 
 ## For More Information
 
-Please review our full analysis in the [Exploratory Jupyter Notebook](./Tzn_Wtr_Pump_Data_Exploration.ipynb) and the [Modeling Jupyter Notebook](Water_Pump_Modeling.ipynb) or our [presentation](./Project_Presentation.pdf).
+Please review our full analysis in the [Exploratory Jupyter Notebook](./Apple_Twitter_Sentiment_Exploratory_Notebook.ipynb) and the [Modeling Jupyter Notebook](Apple_Twitter_Sentiment_Modeling.ipynb) or the [presentation](./Project_Presentation.pdf).
 
 For any additional questions, please contact:
 
@@ -458,19 +462,17 @@ Author Name: Dylan Dey
 
 Email: ddey2985@gmail.com
 
-Github: [Dddey Github](https://github.com/ddey117/Tanzanian_Water_Pump_Classification)
-
 ## Repository Structure
 
 Describe the structure of your repository and its contents, for example:
 
 ```
-├── README.md                             <- The top-level README for reviewers of this project
-├── Tzn_Wtr_Pump_Data_Exploration.ipynb   <- exploratory notebook
-├── Data_Exploration_Notebook.pdf         <- PDF version of exploratory notebook
-├── Water_Pump_Modeling.ipynb             <- modeling notebook
-├── Water_Pump_Modeling.pdf               <- modeling notebook pdf
-├── Project_Presentation.pdf              <- project presentation pdf
-├── data                                  <- Both sourced externally and generated from code
-└── images                                <- Both sourced externally and generated from code
+├── README.md                     <- The top-level README for reviewers of this project
+├── Exploratory_Notebook.ipynb    <- exploratory notebook
+├── Exploratory_Notebook.pdf      <- PDF version of exploratory notebook
+├── Sentiment_Modeling.ipynb      <- modeling notebook
+├── Sentiment_Modeling.pdf        <- modeling notebook pdf
+├── Project_Presentation.pdf      <- project presentation pdf
+├── data                          <- Both sourced externally and generated from code
+└── images                        <- Both sourced externally and generated from code
 ```
