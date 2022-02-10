@@ -219,6 +219,13 @@ positive    0.844749
 negative    0.155251
 
 
+#### Word Clouds
+![pos_appl_cloud](images/pos_apple_cloud.jpg)
+![neg_appl_cloud](images/neg_apple_cloud.jpg)
+![pos_google_cloud](images/pos_google_cloud.jpg)
+![neg_google_cloud](images/neg_google_cloud.jpg)
+
+###### Please See Notebook for bigrams, trigrams, quadrgrams.
 
 #### Some observations from exploring the data:
 
@@ -238,6 +245,9 @@ Address technical issues with iphone 6 and apple news app crashing.
 Launch public relations campaign and give back to community to booster public image.
 
 Reasses training protocols for customer facing employees and ensure customer service is a cornerstone of Apple culture.
+
+#### Proof of Concept
+Actionable insight can be gained with enough social media data. A reasonable amount of labeled data can be budgeted for a growing buisness in order to train a machine learning sentiment classifier on that data and deploy it in order to gain more insights into consumer sentiment on your brand or products. 
 
 ## Data Modeling
 
@@ -259,10 +269,6 @@ A false positive would occur when the model incorrectly identifies a tweet conta
 False negatives are also important to consider. A false negative would occur when the model incorrectly identifies a tweet that contains positive sentiment as one that contains negative sentiment. Given the context of the business problem, this would mean extra noise added to the data when trying to isolate for negative sentiment of brand/product. 
 
 In summary, overall accuracy of the model and a reduction of both false negatives and false positives are the most important metrics to consider when developing a the twitter sentiment analysis model.
-
-
-
-
 
 
 For comparison, I trained four different supervised learning classifiers using term frequency–inverse document frequency(TF-IDF) vectorized preprocessed tweet data. While the vectorization will not be needed for the BERT classifier, it is needed for these supervised classifiers. 
@@ -411,10 +417,7 @@ bert_3 = BertClassifier(do_lower_case=True,
 ```
 
 
-### Modeling
-
-Logistic Regression, Random Forest Classification, and XGBoost Classification models were created and tested. Random search grids were used to narrow down parameters to run a full grid search to tune hyperparamters for each type of model. Please visit the modeling notebook for more information.  
-
+#FIX ALL THE STUFF BELOW THIS
 ## Evaluation
 
 My random forest models outperformed my best logistic regression and XGSBoost models in regards to the metrics that are most important given the business problem at hand.
