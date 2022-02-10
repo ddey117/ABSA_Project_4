@@ -1,4 +1,4 @@
-## Title PlacwHolder
+## Title PlaceHolder
 
 aAuthor: Dylan Dey
 
@@ -219,10 +219,17 @@ positive    0.844749
 negative    0.155251
 
 
-#### Word Clouds
+## Word Clouds
+### Positive Apple Tweets
 ![pos_appl_cloud](images/pos_apple_cloud.jpg)
+
+### Negative Apple Tweets
 ![neg_appl_cloud](images/neg_apple_cloud.jpg)
+
+### Positive Google Tweets
 ![pos_google_cloud](images/pos_google_cloud.jpg)
+
+### Negative Google Tweets
 ![neg_google_cloud](images/neg_google_cloud.jpg)
 
 ###### Please See Notebook for bigrams, trigrams, quadrgrams.
