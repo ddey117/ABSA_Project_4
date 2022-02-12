@@ -11,20 +11,20 @@ associated blog for BERT transfer learning using a sklearn wrapper to easily cre
 
 [Blog Link](https://dev.to/ddey117/quick-bert-pre-trained-model-for-sentiment-analysis-with-scikit-wrapper-3jcp)
 
-Overview
+## Overview
 Process twitter text data to gain insights on a brand and associated products. Create a machine learning sentiment classifier in order to predict sentiment in never before seen tweets. Create word frequency distributions, wordclouds, bigrams, and quadgrams to easily assess actionable insight to address concerns for the brand and it's product line.
 
-Business Problem
+## Business Problem
 A growing company with an established social media presence wants to explore options for generating actionable insights from twitter text data in a more efficient way. They have a new product releasing this year and are interested in what their customers feel about their products.
 
 The company wants a proof of concept for a machine learning solution to this problem. Why would it be worth the time and resources? How can you easily gain actionable insight from a large collection of tweets? Can we trust the model to make accurate predictions?
 
-The Data
+## The Data
 Apple hosted an SXSW event in 2011 that took advantage of their release party to crowdsource some data labeling and boost their social media traffic for the event.
 
 Using this data, sourced from CrowdFlower, as well as some data from an additional Apple Twitter Sentiment Dataset also made available from CrowdFlower and data.world but cleaned and processed and made available on kaggle by author Chanran Kim, a machine learning classifier will be created in order to predict for sentiment contained within a tweet and show how it could be used in tandem with some NLP techniques to extract actionable insights from cluttered tweet data in a manageable way.
 
-### Function Definition
+## Function Definition
 
 All functions used to preprocess twitter data, such as removing noise from text and tokenizing, as well as the functions for creating confusion plots to quickly assess performance are shown below.
 
