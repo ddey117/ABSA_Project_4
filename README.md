@@ -359,7 +359,7 @@ For comparison, I trained four different supervised learning classifiers using t
 ![XGBoosted_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bamwgzjotqhdess6ej0h.png)
 
 #### Code Block for randomized searchCV
-'''
+```
 #initialize grid search variables
 n_estimators = [int(x) for x in np.linspace(start = 10, stop = 200, num = 10)]
 criterion = ["gini", "entropy"]
@@ -393,7 +393,7 @@ balanced_rfc_rs.fit(tf_idf_X_train, y_train)
 #create pipeline for best result from random grid search
 balanced_rfc_rs_pipe = make_pipeline(vectorizer, 
                                      balanced_rfc_rs.best_estimator_)
-'''
+```
 
 #### See Below for resluts of random searchCV
 ![Best_supervised_performance](images/best_balanced_rf_matrix.jpg)
