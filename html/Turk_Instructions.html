@@ -1,0 +1,49 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <!-- The crowd-classifier element will create a tool for the Worker to select the
+           correct answer to your question -->
+    <crowd-classifier 
+      name="sentiment"
+      categories="['Very Positive', 'Positive',  'Neutral', 'Negative', 'Very Negative', 'N/A']"
+      header="What sentiment does this text convey?"
+    >
+
+      <classification-target>
+        <!-- The text you want classified will be substituted for the "text" variable when you 
+               publish a batch with a CSV input file containing multiple text items  -->
+        ${Modifier} ${Aspect} 
+      </classification-target>
+
+     <!-- Use the short-instructions section for quick instructions that the Worker
+            will see while working on the task. Including some basic examples of 
+            good and bad answers here can help get good results. You can include 
+            any HTML here. -->
+      <short-instructions>
+          the noun and adjective should typically describe a pair of headphones from an amazon review </br>
+       Choose the primary sentiment conveyed by each modifier/aspect pair, from very positive to very negative
+      </short-instructions>
+
+      <!-- Use the full-instructions section for more detailed instructions that the 
+            Worker can open while working on the task. Including more detailed 
+            instructions and additional examples of good and bad answers here can
+            help get good results. You can include any HTML here. -->
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p>These adjectives and nouns are supposed to describe a pair of headphones on amazon.</p>
+        <p><strong>Very Positive</strong> sentiment include: perfect, excellent, fantastic, great!</p>
+        <p><strong>Positive</strong> sentiment include: good, ok, fine</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>Negative</strong>: bad, poor, few</p>
+        <p><strong>Very Negative</strong>: awful, terrible, the worst</p>
+        <p><strong>N/A</strong>: When the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
+      </full-instructions>
+
+    </crowd-classifier>
+</crowd-form> 
