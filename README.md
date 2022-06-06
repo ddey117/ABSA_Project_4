@@ -1,546 +1,293 @@
-## Twitter Sentiment Classifier
-### Gaining actionable insight from social media data
+
+# Aspect/Modifier Classification Analysis
+
+## Project Links
+
+Below is the link for the GitHub project page. 
+
+[Github link](https://github.com/ddey117/ABSA_Project_4)
+
+Import research papers for developement of parser logic.
+Includes pdf links for spaCy research paper as well as VADER sentiment intensity analyzer.
+Much work has been done on aspect based sentiment analysis. Please feel free to check out some previous work in the link below. 
+
+[Research Papers](https://github.com/ddey117/ABSA_Project_4/tree/main/research_papers)
+
+For another way to navigate of my overall project, please feel free to check out a HTML version of my project overview at the link below. There is also a link in this directory to see an example of what exactly a Turk worker was looking at when they were labeling data for this project. 
+
+[html project directory](https://github.com/ddey117/ABSA_Project_4/tree/main/html)
+
+
+
+## Overview 
+
+
+    The target for this project is an established e-commerce business with a large amount of review data, such as Amazon.com or other online retailers. The goal of this project is to take advantage of technology and models provided by Spacy combined with a pretrained sentiment intensity classifier provided by the NLTK toolkit in order to perform more fine grained sentiment analysis at scale in an efficient manner. This project takes advantange of the parsing and part of speech tagging capabilites of Spacy's pipeline in order to extract aspect/opinion/sentiment triplets. After the aspects are identified, they can be grouped using unsupervised machine learning clustering techniques; in this case k-means clustering for model speed and simplicity. The buisness can use the finished product to quickly transform a large amount of informal review data (text data from reviews that may ramble for pages) and transform it into helpful graphs in order to tune into a small number of categories and help funnel resources into areas where they are most needed.  
+
 
 Author: Dylan Dey
 
-This project it available on github here: link
 
-The Author can be reached at the following email: ddey2985@gmail.com
+The Author can reached by email: ddey2985@gmail.com
 
-associated blog for BERT transfer learning using a sklearn wrapper to easily create a powerful sentiment classifier with a small dataset can be found at link below.
 
-[Blog Link](https://dev.to/ddey117/quick-bert-pre-trained-model-for-sentiment-analysis-with-scikit-wrapper-3jcp)
+## Buisness Problem
+   
+ 
+![CustomerService.jpg](images/CustomerService.jpg)
+           
+    Sentiment analysis involves computationally identifying and categorizing the sentiment expressed by an author in a body of text. It has a wide range of applications in industry from stock speculation using sentiment expressed in news and blogs, to identifying customer satisfaction from their reviews and social media posts. 
+    Today, most e-commerce website designs include a section where their customers can post reviews for products or services. Customers are free to write how they feel about fine grained aspects of a product at length. From a business perspective, very valuable information can be extracted from this section, such as customers' opinion on a product, understanding of a product, etc..
+     On Amazon.com the rating can be between 1 and 5 where 1 is the worst and 5 is the best. A customer can leave as lengthy of a review as they wish about a product to explain why a given rating was posted.  For example, a customer may give a product a low rating because they didn't like someone they spoke to in customer service but liked everything else about the product.  In typical sentiment analysis, these kinds of nuances would be missed since it could only be determined  if the overall body of the review contained positive, neutral, or negative sentiment. Valuable information would be left on the table. 
+     There is potentially a disconnect from the amazon review ratings, and the overall sentiment of the body text explaining the review, especially if you begin to break down the text into smaller aspects. Thus, Aspect Based Sentiment Analysis (ABSA) was chosen to see if a deeper understanding of each product can be gained by breaking down each review into aspect categories to be paired with predicted sentiment, which will then be compared with the overall rating (1-5). 
+     It is often difficult to efficiently get useful data from a large collection of text data. A lot of e-commerce websites have thousands of reviews and more incoming all of the time. Thousands of reviews with hundreds of words of mostly unhelpful information seems fairly unmanageable to most companies. While the reviews are rather informal, if they are carefully broken down there is information worth saving before generalizing again for efficiency. Aspect Based Sentiment Analysis can transform a messy collection of thousands of informal reviews into a neat and manageable collection of a few aspect categories, in this case 4 different categories using the out of box  Aspect/Opinion/Sentiment Triplet Extractor. Each category will have an associated degree of sentiment related to it, and therefore graphics can easily be prepared and presented to digest more precisely what it is that customers do and do not like about a product in a quickly digestible format in real time. By breaking it down into these categories, say for example Product Design, Value, Quality, and Customer Support, the mass of text data has now been transformed into a numerical representation of sentiment towards broad categories of a product that can be directly improved upon by the company. If a product scores very high sentiment for value and design but lower scores for customer support, then a company knows it doesnt need to invest more money into improving the product and actually needs to focus on improving how its forward facing employees interact with customers. 
 
-## Overview
-Process twitter text data to gain insights on a brand and associated products. Create a machine learning sentiment classifier in order to predict sentiment in never before seen tweets. Create word frequency distributions, wordclouds, bigrams, and quadgrams to easily assess actionable insight to address concerns for the brand and it's product line.
-
-## Business Problem
-A growing company with an established social media presence wants to explore options for generating actionable insights from twitter text data in a more efficient way. They have a new product releasing this year and are interested in what their customers feel about their products.
-
-The company wants a proof of concept for a machine learning solution to this problem. Why would it be worth the time and resources? How can you easily gain actionable insight from a large collection of tweets? Can we trust the model to make accurate predictions?
 
 ## The Data
-Apple hosted an SXSW event in 2011 that took advantage of their release party to crowdsource some data labeling and boost their social media traffic for the event.
 
-Using this data, sourced from CrowdFlower, as well as some data from an additional Apple Twitter Sentiment Dataset also made available from CrowdFlower and data.world but cleaned and processed and made available on kaggle by author Chanran Kim, a machine learning classifier will be created in order to predict for sentiment contained within a tweet and show how it could be used in tandem with some NLP techniques to extract actionable insights from cluttered tweet data in a manageable way.
+Helpful links: 
 
-## Function Definition
+[ReadMe file for Amazon Product Reviews](https://s3.amazonaws.com/amazon-reviews-pds/readme.html)
+[MetaData](https://s3.amazonaws.com/amazon-reviews-pds/tsv/index.txt)
 
-All functions used to preprocess twitter data, such as removing noise from text and tokenizing, as well as the functions for creating confusion plots to quickly assess performance are shown below.
 
-```
-#list of all functions for modeling
-#and processing
+The Amazon Customer Reviews (Product Reviews) contains over 130+ million customer reviews available to researchers in TSV files in the amazon-reviews-pds S3 bucket in AWS US East Region, as per the provided readme file. The reviews were collected from 1995 to 2015. See the provided link for associated metadata. This project focuses on the dataset given by pulling “https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Electronics_v1_00.tsv.gz” from the S3 bucket.
 
-#force lowercase of text data
-def lower_case_text(text_series):
-    text_series = text_series.apply(lambda x: str.lower(x))
-    return text_series
+Product_id ["B0001FTVEK"](https://www.amazon.com/Sennheiser-RS120-Wireless-Headphones-Charging/dp/B0001FTVEK) was chosen to showcase the triplet extractor as it had a large amount of verified reviews and a pair of headphones seemed like a reasonable choice for aspect based sentiment analysis.
 
-#remove URL links from text
-def strip_links(text):
-    link_regex = re.compile('((https?):((\/\/)|(\\\\))+([\w\d:#@%\/;$()~_?\+-=\\\.&](#!)?)*)|{link}/gm')
-    links = re.findall(link_regex, text)
-    for link in links:
-        text = text.replace(link[0], ', ')    
-    return text
+##### Clean Data
+Text data trends towards exponential growth with increasing dataset size. Therefore, text cleaning and preprocessing was a major considersation of this project. Please refer to my [Text Preprocessing Toolset](https://github.com/ddey117/preprocess_ddey117) that I created to use for this and other projects that involve text data preprocessing. 
 
-#remove '@' and '#' symbols from text
-def strip_all_entities(text):
-    entity_prefixes = ['@','#']
-    for separator in  string.punctuation:
-        if separator not in entity_prefixes:
-            text = text.replace(separator,' ')
-    words = []
-    for word in text.split():
-        word = word.strip()
-        if word:
-            if word[0] not in entity_prefixes:
-                words.append(word)
-    return ' '.join(words)
 
-#tokenize text and remove stopwords
-def process_text(text):
-    tokenizer = TweetTokenizer()
+#### Unlabeled Data Created Through Unsupervised Learning
+
+This project showcases an out of box product for extracting opinon/aspect/sentiment triplets from a large amount of messy text data and converting it into a neat set of categories for analysis. To do this, however, it takes advantage of some simple clustering techniques from the sklearn cluster library. For this project, kmeans clustering was chosen for speed and simplicity. Error analysis will be discussed later in more detail in regards to how the model performs with clustering the reviews appropriately into categories and what issues it may run into when parsing internet language. Error analysis for the [SentimentIntensityClassifier](https://www.nltk.org/howto/sentiment.html) offered by the Natural Language ToolKit (NLTK library) will be tested against this 'newly' generated data from my unsupervised learning will be performed by comparing to a seperate set of hand labeled aspect/modifier pairs by humans in an expiremental setting. 
+
+##### experimental setup
+ Using the following [Turk_Form_HTML](Turk_Instructions.html) I crowdsourced some labels from humans using Amazon Mechanical Turk to compare to my model using the SentimentIntensityAnalyzer for each aspect/modifier pair extracted from the Amazon reviews. Amazon Mechanical Turk works by quickly dispersing large amounts of data to a large number of people in order to complete simple tasks for a reward. This experiment was set up to reward a penny for each aspect/modifier pair labeled for sentiment from very negative to very positive with an option for NA from a drop down menu (see html above for reference). In total, 410 workers submitted 6107 non-null aspect/opinion pairs for sentiment intensity pertaining to 1438 unique aspects. Duplicate pairs of aspect/opinion pairs were included to inspect variance of submission from human labels and machine labels for each opinion pair. No qualifications or screening was put in place before the workers were chosen, but I did review sections of the data and accept or reject what seemed reasonable. An additional 860 aspect/modifier pairs were hand labeled by a family member who only knew that the labels were extracted from amazon reviews about headphones and followed a similar template as the turk HTML. 
+
+
+All labels were generated using my triplet extractor on the dataset describing Product_id ["B0001FTVEK"](https://www.amazon.com/Sennheiser-RS120-Wireless-Headphones-Charging/dp/B0001FTVEK) and randomized for different aspect/modifier pairs before sending out to humans for rating for sentiment. 
+
+
+
+
+
+A large collection of amazon reviews that fall under the "electronics" category. For this project, product_id "B0001FTVEK" was chosen as it had a large amount of verified reviews and a pair of headphones seemed like a reasonable choice for aspect based sentiment analysis.
+![large_amz_tsv_output.jpg](attachment:large_amz_tsv_output.jpg)
+
+
+A simple package I created for preprocessing text data. 
+[ddey117 Preprocessing Library](https://github.com/ddey117/preprocess_ddey117)
+
+## Explaining The Parser
+![parser.jpg](Modifieraspectopinion extractor.jpg)
+
+
+<b><span style="color:Green">Clustering and Polarity</span></b>
+
+A large number of amazon reviews produce a large number of aspect-modifier pairs. These pairs ultimately seemed to diverge to common topics, and therefore it would make sense to use machine learning to automatically figure out these categories for us. This leads to a better summation of insight from the total pool of customers who were kind enough to leave a review. Polarity scores are also averaged out of every cluster to give a quantifiable explanation to opinion to distinct categories of a given product. 
+
+
+<b><span style="color:Blue">Word Vectors and Clustering</span></b>
+
+In order to work with any amazon review data, first the text data must be converted into something that a machine can recognize. The most famous implementation of words vectors is the word2vec project. However, spaCy vectorization was chosen for this projec as it provides fast and easy access to over a million unique word vectors, and its multi-task CNN model is trained on 'web' data and not 'newspaper' data as in other libraries like NLTK.
+
+The word vectors were then grouped using K-Means clustering algorithm in Scikit-Learn. Other clustering algorithms such as DBSCAN  were tested. However, K-Means gave optimal results with four clusters. The clusers were labeled with input from a user after suggesting the top most common word for each cluster. 
+
+
+
+Below Is the pipeline design for spaCy and a description for the size and sources for the model loaded to run this project and parse the amazon reviews. 
+
+[en_core_web_large](https://spacy.io/models/en#en_core_web_lg)
+
+![spaCy image](images/spaCy.jpg)
+
+
+<div class="alert alert-block alert-danger">
+
+"spaCy uses the terms **head** and **child** to describe the words connected by a single arc in the dependency tree. The term **dep** is used for the arc label, which describes the type of syntactic relation that connects the child to the head. As with other attributes, the value of .dep is a hash value. You can get the string value with .dep_."   [Navigating The Parse Tree](https://spacy.io/usage/linguistic-features#navigating)
+
+</div>
+
+<div class="alert alert-block alert-info">
     
-    stopwords_list = stopwords.words('english') + list(string.punctuation)
-    stopwords_list += ["''", '""', '...', '``']
-    my_stop = ["#sxsw",
-               "sxsw",
-               "sxswi",
-               "#sxswi's",
-               "#sxswi",
-               "southbysouthwest",
-               "rt",
-               "tweet",
-               "tweet's",
-               "twitter",
-               "austin",
-               "#austin",
-               "link",
-               "1/2",
-               "southby",
-               "south",
-               "texas",
-               "@mention",
-               "ï",
-               "ï",
-               "½ï",
-               "¿",
-               "½",
-               "link", 
-               "via", 
-               "mention",
-               "quot",
-               "amp",
-               "austin"
-              ]
+<span style="color:green"><b>First Rule of Dependency Parser:</b>  The Aspect (A) token is a subject noun with a child modifier (M) that has a relation of amod (adjectival modifier). This just means that the aspect and opinion share a simple adjective/noun relationship that can be extracted. However, there are certain caveats that need to be kept in mind when parsing the tree for this rule. </span> 
 
-    stopwords_list +=  my_stop 
+  
+   - <span style="color:green">First, it is important to check to see if there is an additional adverbial modifier that could adjust the intensity of the sentiment implied by the adjective and adverb combination in regards to the subject/aspect. This is important to keep in mind as we are taking advantage of NLTK vader sentiment intensity analyzer which can make use of additional adverbs to get a better understanding of sentiment.</span>   
+   
+  
+   - <span style="color:green">
+    Another important thing to keep in mind when parsing for this rule is to be aware of the possibility of negating the adjective with ‘no’ as a determiner. </span>
+
+                                                                
+                                                                
+                                                                
+                                                                
+</div>
+
+<div class="alert alert-block alert-warning">
     
-    tokens = tokenizer.tokenize(text)
-    stopwords_removed = [token for token in tokens if token not in stopwords_list]
-    return stopwords_removed
+<b>First Rule Examples</b>
+
+<b>Example1:</b> The <span style="color:green">comfortable</span> <span style="color:blue">headphones.</span> 
+
+<b>Example2:</b> The <span style="color:purple">most</span> <span style="color:green">comfortable</span> <span style="color:blue">headphones.</span>
+
+<b>Example3:</b><span style="color:red"> No</span> <span style="color:green">comfortable</span> <span style="color:blue">features.</span>
+
+
+- <span style="color:red">det = determiner</span>
+
+- <span style="color:blue">A = aspect</span>
+
+- <span style="color:green">M = modifier</span>
+
+- <span style="color:purple">amod = adjectival modifier</span>
+</div>
+
+<div class="alert alert-block alert-info">
     
+<span style="color:green"><b>Second Rule of Dependency Parser:</b>  The aspect (A) is a child of something with a relation of nominal subject (nsubj.) while the modifier (M) is a child of the same something with a relationship of direct object. In this case, the adjective would be acting as the determiner of the clause. For simplicity's sake, it was determined to assume that each verb will have only one NSUBJ and DOBJ. This is a fair assumption for the application of this project, because even if there are multiple subjects, they will both be reviewing the same thing and will likely share the same opinion as it is written as a single review. For example, if an author were to say “My wife and I bought the awesome headphones”, we still only want to extract the keywords ‘awesome’ and ‘headphones.’ If this sounds confusing, hopefully the example below will help clarify. </span>                                                                 
+</div>
 
-
-#master preprocessing function
-def Master_Pre_Vectorization(text_series):
-    text_series = lower_case_text(text_series)
-    text_series = text_series.apply(strip_links).apply(strip_all_entities)
-    text_series = text_series.apply(unidecode.unidecode).apply(html.unescape)
-    text_series =text_series.apply(process_text)
-    lemmatizer = WordNetLemmatizer()
-    text_series = text_series.apply(lambda x: [lemmatizer.lemmatize(word) for word in x])
-    return text_series.str.join(' ').copy()
-
-
-#function for intepreting results of models
-#takes in a pipeline and training data
-#and prints cross_validation scores 
-#and average of scores
-
-
-def cross_validation(pipeline, X_train, y_train):
-    scores = cross_val_score(pipeline, X_train, y_train)
-    agg_score = np.mean(scores)
-    print(f'{pipeline.steps[1][1]}: Average cross validation score is {agg_score}.')
-
-
-#function to fit pipeline
-#and return subplots 
-#that show normalized and 
-#regular confusion matrices
-#to easily intepret results
-def plot_confusion_matrices(pipe):
+<div class="alert alert-block alert-warning">
     
-    pipe.fit(X_train, y_train)
-    y_true = y_test
-    y_pred = pipe.predict(X_test)
+<b>Second Rule Example</b>
 
-    matrix_norm = confusion_matrix(y_true, y_pred, normalize='true') 
-    matrix = confusion_matrix(y_true, y_pred) 
+<b>Example:</b><span style="color:red"> I </span>bought the <span style="color:green">awesome</span> <span style="color:blue">headphones.</span>
 
-    fig, (ax1, ax2) = plt.subplots(ncols = 2,figsize=(10, 5))
-    sns.heatmap(matrix_norm,
-                annot=True, 
-                fmt='.2%', 
-                cmap='YlGn',
-                xticklabels=['Pos_predicted', 'Neg_predicted'],
-                yticklabels=['Positive Tweet', 'Negative_Tweet'],
-                ax=ax1)
-    sns.heatmap(matrix,
-                annot=True, 
-                cmap='YlGn',
-                fmt='d',
-                xticklabels=['Pos_predicted', 'Neg_predicted'],
-                yticklabels=['Positive Tweet', 'Negative_Tweet'],
-                ax=ax2)
-    plt.show();
 
+- <span style="color:red">nsubj = nominal subject</span>
+
+- <span style="color:blue">dobj =headphones</span>
+
+- <span style="color:green">det= awesome</span>
+
+
+</div>
+
+<div class="alert alert-block alert-info">
     
-#loads a fitted model from memory 
-#returns confusion matrix and
-#returns normalized confusion matrix
-#calculated using given test data
-def confusion_matrix_bert_plots(model_path, X_test, y_test):
+<span style="color:green"><b>Third Rule of Dependency Parser:</b>  The modifier (M) is a child of something with a relation of an adjectival complement (acomp), while the aspect (A) is a child of that same something with a relation of nominal subject (nsubj). </span>    
+
+   - <span style="color:green">This rule needs to handle special cases in which the child is tagged as a modal verb with an auxiliary dependency. This would flag for phrases such as “the sound of the speakers could be better.” For special cases like this, the parser will add a negative prefix before scoring the aspect/modifier pairs for sentiment.</span>   
+</div>
+
+<div class="alert alert-block alert-warning">
     
-    model = load_model(model_path)
+<b>Third Rule Examples</b>
+
+<b>Example1:</b> Barb is <span style="color:green">happy</span> about the <span style="color:blue">sound quality.</span> 
+
+<b>Example2:</b> <span style="color:blue">This</span><span style="color:green"> could be better.</span>
+
+Example2 would be extracted as A= "this" and M= "not better"
+
+
+- <span style="color:blue">A = aspect</span>
+
+- <span style="color:green">M = modifier</span>
+
+
+</div>
+
+<div class="alert alert-block alert-info">
     
-    y_pred = model.predict(X_test)
+<span style="color:green"><b>Fourth Rule of Dependency Parser:</b>  The aspect (A) is a child of something with a relationship of passive nominal subject (nsubjpass) while the modifier (M) is a child of that same something with a relationship of adverbial modifier (advmod). In other words, the modifier is an adverbial modifier to a passive verb. </span>    
 
-    matrix_norm = confusion_matrix(y_test, y_pred, normalize='true')
+   - <span style="color:green"> nsubjpass: A passive nominal subject is a noun phrase which is the syntactic subject of a passive clause. </span>  
+   
+   - <span style="color:green"> This step of the parser will also check to add a negative prefix before extracting and scoring for sentiment if necessary </span>
+  
+  
+</div>
 
-    matrix = confusion_matrix(y_test, y_pred)
+<div class="alert alert-block alert-warning">
+    
+<b>Fourth Rule Examples</b>
 
-    fig, (ax1, ax2) = plt.subplots(ncols = 2,figsize=(10, 5))
-    sns.heatmap(matrix_norm,
-                annot=True, 
-                fmt='.2%', 
-                cmap='YlGn',
-                xticklabels=['Pos_predicted', 'Neg_predicted'],
-                yticklabels=['Positive Tweet', 'Negative_Tweet'],
-                ax=ax1)
-    sns.heatmap(matrix,
-                annot=True, 
-                cmap='YlGn',
-                fmt='d',
-                xticklabels=['Pos_predicted', 'Neg_predicted'],
-                yticklabels=['Positive Tweet', 'Negative_Tweet'],
-                ax=ax2)
-    plt.show();
-```
+<b>Example1:</b> The <span style="color:blue">headphones</span> died <span style="color:green">quickly.</span> 
 
 
-### Class Imbalance of Dataset
 
-The twitter data used for this project was collected from multiple sources from [CrowdFlower](https://appen.com/datasets-resource-center/). The project will only focus on binary sentiment (positive or negative). The total amount of tweets and associated class balances are show below. This distribution is further broken down by brand in the chart below the graphs.
+- <span style="color:blue">A = aspect</span>
 
-![Class_Imbalance_Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pvpg3napakuqebqq4j3p.jpg)
+- <span style="color:green">M = modifier</span>
 
+<div class="alert alert-block alert-info">
+    
+<span style="color:green"><b>Fifth Rule of Dependency Parser:</b>  The aspect (A) is a child of the modifier with a relationship of nominal subject, while the modifier has a child with a relation of copula(cop).
+Here the parser is looking for the complement of a copular verb. An often used copula verb is the word “is,” as in the phrase “Bill is big." </span>    
 
-#### Apple Positive vs Negative Tweet Counts
-positive    0.654194
-negative    0.345806
-+++++++++++++++++++++++
-positive    2028
-negative    1072
-+++++++++++++++++++++++++++++++++++++++++++++++++++
-#### Google Positive vs Negative Tweet Counts
-positive    740
-negative    136
-+++++++++++++++++++++++
-positive    0.844749
-negative    0.155251
+   - <span style="color:green"> Assumption - A verb will have only one NSUBJ and DOBJ </span>  
+   
+   - <span style="color:green"> cop: copula A copula is the relation between the complement of a copular verb and the copular verb. (We normally take a copula as a dependent of its complement. </span>
+  
+  
+</div>
 
-### Data Exploration By Brand
 
-Below are some quick examinations of the distrubtion of tweets by brand and sentiment.
+<div class="alert alert-block alert-warning">
+    
+<b>Fifth Rule Example</b>
 
-Apple Positive vs Negative Tweet Counts
-positive    0.654194
-negative    0.345806
+<b>Example1:</b> The <span style="color:blue">sound</span> is <span style="color:green">awesome.</span> 
 
-positive    2028
-negative    1072
 
-++++++++++++++++++++++++++++++++++++++++
 
-Google Positive vs Negative Tweet Counts
-positive    740
-negative    136
+- <span style="color:blue">A = aspect</span>
 
-positive    0.844749
-negative    0.155251
+- <span style="color:green">M = modifier</span>
 
 
 
+<div class="alert alert-block alert-info">
+    
+<span style="color:green"><b>Sixth Rule of Dependency Parser:</b>  Aspect/modifier are children of an interjection </span>    
 
-After being seperated by brand/emotion pairs, the twitter text data will be processed and cleaned. The text data will then be tokenized using a scikit learn Twitter tokenizer before creating term frequency counts for each brand/emotion combination using the tokenized text data. The term frequency counts are used to generate word clouds to quickly visualize what people do and do not like about the brand or product. Bigrams, trigrams, and quadrgrams were created using [Pointwise Mutual Information(PMI)](https://en.wikipedia.org/wiki/Pointwise_mutual_information) scores generated using NLTK collocations.
+   - <span style="color:green"> NTJ (interjections like bravo, great etc)</span>  
+   
+ 
+</div>
 
-Pointwise mutual information can be used to determine if two words co-occur by chance or have a high probability to express a unique concept. This concept can be expanded to determine if three words have a high probability to occur together, four and so on.
 
-These Natural Language Processing (NLP) techniques and others can easily be used to make actionable insight from twitter data.
+<div class="alert alert-block alert-warning">
+    
+<b>Sixth Rule Example</b>
 
+<b>Example1:</b> <span style="color:green">Bravo,</span> <span style="color:blue">headphones.</span> 
 
 
 
-## Word Clouds
-### Positive Apple Tweets
-![pos_appl_cloud](images/pos_apple_cloud.jpg)
+- <span style="color:blue">A = aspect</span>
 
-### Negative Apple Tweets
-![neg_appl_cloud](images/neg_apple_cloud.jpg)
+- <span style="color:green">M = modifier</span>
 
-### Positive Google Tweets
-![pos_google_cloud](images/pos_google_cloud.jpg)
+<div class="alert alert-block alert-info">
+    
+<span style="color:green"><b>Seventh Rule of Dependency Parser:</b>  This rule is similar to rule 5, but makes use of the attr (attribute) tag instead. It seems to function similarly, in which an attribute is considered a noun phrase following a copular verb </span>    
 
-### Negative Google Tweets
-![neg_google_cloud](images/neg_google_cloud.jpg)
+   - <span style="color:green"> ATTR - link between a verb like 'is/seem/appear/became' and its complement</span>  
+  
+</div>
 
-###### Please See Notebook for bigrams, trigrams, quadrgrams.
+<div class="alert alert-block alert-warning">
+    
+<b>Seventh Rule Example</b>
 
+<b>Example1:</b> <span style="color:blue">This</span> is <span style="color:green">garbage.</span> 
 
 
-#### Some observations from exploring the data:
 
-- Multiple complaints about issues with iphone 6 and its new touch id feature. Some googling unveiled an issue in which iphone 6 touch id button / home button would malfunction and heat up to high temperatures. 
-- many complaints about phone chargers 
-- high negative sentiment for iphone batteries 
-- Some users displeased with issues with apple news app
-- apple ipad 2 described as a design headache
-- Complaints about customer service
-- public image described as fascist 
+- <span style="color:blue">A = aspect</span>
 
+- <span style="color:green">M = modifier</span>
 
-Recommend to focus on improving battery life and quality. Improve phone accessories for charging and protecting batteries. (apple did improved a lot on this since 2011 when many of the tweets were collected)
-
-Address technical issues with iphone 6 and apple news app crashing.
-
-Launch a public relations campaign and give back to the community to boost public image.
-
-Reassess training protocols for customer facing employees and ensure customer service is a cornerstone of Apple culture.
-
-
-
-#### Proof of Concept
-Actionable insight can be gained with enough social media data. A reasonable amount of labeled data can be budgeted for a growing business in order to train a machine learning sentiment classifier on that data and deploy it in order to gain more insights into consumer sentiment on your brand or products. 
-
-
-## Data Modeling
-
-#### Classification Metric Understanding
-![Confusion_Matrix_Breakdown](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1sq4f1wehvjntw5lwbzt.jpg)
-
-#### Confusion Matrix Description
-
-# Apple Tweet Sentiment Analysis
-## Modeling Notebook
-
-Author: Dylan Dey
-
-The Author can be reached at the following email: ddey2985@gmail.com
-
-Blog: [Quick BERT Pre-Trained Model for Sentiment Analysis with Scikit Wrapper](https://dev.to/ddey117/quick-bert-pre-trained-model-for-sentiment-analysis-with-scikit-wrapper-3jcp)
-
-#### Classification Metric Understanding
-![Matrix_Understanding](images/Apple_Twitter_matrix_explained.jpg)
-
-#### Confusion Matrix Description
-
-There will always be some error involved in creating a predictive model. The model will incorrectly identify positive tweets as negative and vice versa. That means the error in any classification model in this context can be described by ratios of true positives or negatives vs false positives or negatives.
-
-
-Correctly predicting a tweet to have negative sentiment is at the heart of the model, as this is the situation in which a company would have a call to action. An appropriately identified tweet with negative sentiment can be properly examined using some simple NLP techniques to get a quick buy effective way to view what is upsetting customers about the company it's products.
-
-Correctly predicting a tweet to have positive sentiment is also important. Word frequency analysis can be used to summarize what consumers think Apple is doing right and also what consumers like about Apple's competitors. 
-
-A false positive would occur when the model incorrectly identifies a tweet containing negative sentiment as a tweet that contains positive sentiment. Given the context of the business model, this would mean more truly negative sentiment will be left out of analyzing key word pairs for negative tweets. This could be interpreted as loss in analytical ability for what we care about most given the buisness problem: making informed decisions from information directly from consumers in the form of social media text. Minimizing false positives is important.
-
-False negatives are also important to consider. A false negative would occur when the model incorrectly identifies a tweet that contains positive sentiment as one that contains negative sentiment. Given the context of the business problem, this would mean extra noise added to the data when trying to isolate for negative sentiment of brand/product. 
-
-In summary, overall accuracy of the model and a reduction of both false negatives and false positives are the most important metrics to consider when developing the sentiment analyisis model. 
-
-##### MVP Metric
-[balanced_accuracy_score](https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter)
-
-From the documentation: 
-
-"The balanced accuracy in binary and multiclass classification problems to deal with imbalanced datasets. It is defined as the average of recall obtained on each class."
-
-This is a great metric for this problem as optimizing for the average of recall for each class will give the best performance given the context of the buisness problem. 
-
-
-For comparison, I trained four different supervised learning classifiers using term frequency–inverse document frequency(TF-IDF) vectorized preprocessed tweet data. While the vectorization will not be needed for the BERT classifier, it is needed for these supervised classifiers. The best model was then be fitted with a random grid-searchCV to tune hyperparamters for best balanced accuracy. 
-
-[TF-IDF wiki](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
-
-[TfidfVectorize sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
-
-[MultinomialNB documentation](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB)
-
-[Random Forest documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
-
-[Balanced Random Forest Classifier Documentation](https://imbalanced-learn.org/stable/references/generated/imblearn.ensemble.BalancedRandomForestClassifier.html)
-
-[XGBoosted Trees Documentation](https://xgboost.readthedocs.io/en/stable/python/python_intro.html)
-
-
-### Multinomial Naive Bayes Base Model Performance
-![NB_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w2ntksg37392a4ch22u4.png)
-
-### Random Forest Classifier Base Model Performance
-![RF_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/98t4fd8tg87z7amk3oh8.png)
-
-### Balanced Random Forest Classifier Base Model Performance
-![Balanced_RF_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tec244erxdn4s5rf059h.png)
-
-### XGBoosted Random Forest Classifier Base Model Performance
-![XGBoosted_Matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bamwgzjotqhdess6ej0h.png)
-
-#### Code Block for randomized searchCV
-```
-#initialize grid search variables
-n_estimators = [int(x) for x in np.linspace(start = 10, stop = 200, num = 10)]
-criterion = ["gini", "entropy"]
-min_samples_split = [8, 10, 12]
-max_depth = [int(x) for x in np.linspace(10, 1000, num = 10)] 
-min_samples_leaf = [0.01, 0.1, 1, 2, 4]
-
-# Create the random grid
-random_grid = {'n_estimators': n_estimators,
-               'criterion': criterion,
-               'max_depth': max_depth,
-               'min_samples_split': min_samples_split,
-               'min_samples_leaf': min_samples_leaf
-              }
-
-#rrandomly iterate 1667*3 times through the grid
-balanced_rfc_rs = RandomizedSearchCV(estimator = BalancedRandomForestClassifier(), 
-                                     param_distributions = random_grid,
-                                     scoring = 'balanced_accuracy',
-                                     n_iter = 1667,
-                                     cv = 3,
-                                     verbose=2,
-                                     random_state=11,
-                                     n_jobs = -1
-                                    )
-
-
-#fit random grid search and determine best_estimator_
-balanced_rfc_rs.fit(tf_idf_X_train, y_train)
-
-#create pipeline for best result from random grid search
-balanced_rfc_rs_pipe = make_pipeline(vectorizer, 
-                                     balanced_rfc_rs.best_estimator_)
-```
-
-#### See Below for resluts of random searchCV
-![Best_supervised_performance](images/best_balanced_rf_matrix.jpg)
-
-
-### Transfer Learning: Taking Advantage of a pre-trained BERT_base Classifier
-
-Now that the supervised learning models have been built, trained, and tuned without any pre-training, our focus will now turn to transfer learning using Bidirectional Encoder Representations from Transformers(BERT), developed by Google. BERT is a transformer-based machine learning technique for natural language processing pre-training. BERTBASE models are pre-trained from unlabeled data extracted from the BooksCorpus with 800M words and English Wikipedia with 2,500M words. 
-
-[Click Here for more from Wikipedia](https://en.wikipedia.org/wiki/BERT_(language_model))
-
-[GitHub for BERT release code](https://github.com/google-research/bert)
-
-Sckit-learn wrapper provided by Charles Nainan. [GitHub of Scikit Learn BERT wrapper](https://github.com/charles9n/bert-sklearn). 
-
-This scikit-learn wrapper is used to finetune Google's BERT model and is built on the huggingface pytorch port.
-
-The BERT classifier is now ready to be fit and trained on data in the same way you would any sklearn model. 
-
-See the code block below for a quick example.
-```
-bert_1 = BertClassifier(do_lower_case=True,
-                        train_batch_size=32,
-                        max_seq_length=50
-                       )
-
-bert_1.fit(X_train, y_train)
-
-y_pred = bert_1.predict(X_test)
-
-```
-
-Four models were trained and stored locally. See the code block below for the chosen parameters in every model.
-
-```
-"""
-The first model was fitted as seen commeted out below 
-after some trial and error to determine an appropriate
-max_seq_length given my computer's capibilities. 
-
-"""
-
-
-# bert_1 = BertClassifier(do_lower_case=True,
-#                       train_batch_size=32,
-#                       max_seq_length=50
-#                      )
-
-
-
-"""
-My second model contains 2 hidden layers with 600 neurons. 
-It only passes over the corpus one time when learning.
-It trains fast and gives impressive results.
-
-"""
-
-
-# bert_2 = BertClassifier(do_lower_case=True,
-#                       train_batch_size=32,
-#                       max_seq_length=50,
-#                       num_mlp_hiddens=500,
-#                       num_mlp_layers=2,
-#                       epochs=1
-#                      )
-
-"""
-My third bert model has 600 neurons still but
-only one hidden layer. However, the model
-passes over the corpus 4 times in total
-while learning.
-
-"""
-
-# bert_3 = BertClassifier(do_lower_case=True,
-#                       train_batch_size=32,
-#                       max_seq_length=50,
-#                       num_mlp_hiddens=600,
-#                       num_mlp_layers=1,
-#                       epochs=4
-#                      )
-
-"""
-My fourth bert model has 750 neurons and 
-two hidden layers. The corpus also gets
-transversed four times in total while 
-learning.
-
-"""
-
-# bert_4 = BertClassifier(do_lower_case=True,
-#                       train_batch_size=32,
-#                       max_seq_length=50,
-#                       num_mlp_hiddens=750,
-#                       num_mlp_layers=2,
-#                       epochs=4
-#                      )
-```
-
-
-#### Bert 1 Results
-![Bert1_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bk45s73uuu3g3uq32gh6.jpg)
-
-#### Bert 2 Results
-![Bert2_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zkf97e7mq70s0t3cn6ae.jpg)
-
-#### Bert 3 Results
-![Bert3_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9h1fzlqeo4hzrc0u2odq.jpg)
-
-#### Bert 4 Results
-![Bert4_matrix](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bhmnbot0ba1m2t4yt7ga.jpg)
-
-
-## Evaluation
-
-The best performing model was the  BERT Classifier with 4 epochs, one hidden layer, and 600 neurons. This classifier was able to correctly predict over 80% of negative tweets correctly, which is really impressive given the imbalance in the original data. It also correctly identifies positive tweets nearly 94% of the time.
-
-
-##### Balanced Random Forest Confusion Matrix
-![Bert3_Matrix](images/bert3_matrix.jpg)
-
-
-While the BERT classifier performed the best, the balanced random forest classifier has moderate predictive abilities using sparse vectors.   
-
-##### Balanced Random Forest Confusion Matrix
-![Balanced_RandomForest_Matrix](images/best_balanced_rf_matrix.jpg)
-
-
-## Conclusions 
-
-- Either classifier could be used to predict sentiment on new brand-centric social media data for the company's own products or that of a competitor.
-
-### Future Work
-
-- Use the BERT classifier to predict the sentiment on new unlabeled twitter data filtered for product or brand of interest (Apple/Google) from another source to find more actionable insights to further proof of concept.
-
-
-- Use the BERT classifier to predict the sentiment on new twitter data to help balance existing dataset and retrain the other models.
-
-- leverage a state-of-the-art early stopping algorithm (ASHA) using Ray Tune and PyTorch.(1)(2)
-
-(1)Author Amog Kamsetty explores the importance of hyperparameter tuning in his blog [Hyperparameter Optimization for Transformers: A guide
-](https://medium.com/distributed-computing-with-ray/hyperparameter-optimization-for-transformers-a-guide-c4e32c6c989b). [This Colobrative Notebook](https://colab.research.google.com/drive/1tQgAKgcKQzheoh503OzhS4N9NtfFgmjF?usp=sharing) shared in the blog is a good starting point to try optimize with Ray Tune. 
-
-(2)Author Richard Liaw shares a blog that shows how simple it is to leverage all of the cores and GPUs on your machine to perform parallel asynchronous hyperparameter tuning and how to launch a massive distributed hyperparameter search on the cloud (and automatically shut down hardware after completion). [Ray Tune: a Python library for fast hyperparameter tuning at any scale](https://towardsdatascience.com/fast-hyperparameter-tuning-at-scale-d428223b081c) also showcases a lot of exciting algorithms to explore when tuning models. 
-
-
+<div class="alert alert-block alert-danger">
+<b>For all Parsing:</b> SpaCy has a large library of named entities it can recoginize and tag. This logic is added for each step in the model.
+</div>
 
 ## For More Information
 
