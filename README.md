@@ -64,7 +64,7 @@ Text data trends towards exponential growth with increasing dataset size. Theref
 This project showcases an out of box product for extracting opinon/aspect/sentiment triplets from a large amount of messy text data and converting it into a neat set of categories for analysis. To do this, however, it takes advantage of some simple clustering techniques from the sklearn cluster library. For this project, kmeans clustering was chosen for speed and simplicity. Error analysis will be discussed later in more detail in regards to how the model performs with clustering the reviews appropriately into categories and what issues it may run into when parsing internet language. Error analysis for the [SentimentIntensityClassifier](https://www.nltk.org/howto/sentiment.html) offered by the Natural Language ToolKit (NLTK library) will be tested against this 'newly' generated data from my unsupervised learning will be performed by comparing to a seperate set of hand labeled aspect/modifier pairs by humans in an expiremental setting. 
 
 ##### experimental setup
- Using the following [Turk_Form_HTML](Turk_Instructions.html) I crowdsourced some labels from humans using Amazon Mechanical Turk to compare to my model using the SentimentIntensityAnalyzer for each aspect/modifier pair extracted from the Amazon reviews. Amazon Mechanical Turk works by quickly dispersing large amounts of data to a large number of people in order to complete simple tasks for a reward. This experiment was set up to reward a penny for each aspect/modifier pair labeled for sentiment from very negative to very positive with an option for NA from a drop down menu (see html above for reference). In total, 410 workers submitted 6107 non-null aspect/opinion pairs for sentiment intensity pertaining to 1438 unique aspects. Duplicate pairs of aspect/opinion pairs were included to inspect variance of submission from human labels and machine labels for each opinion pair. No qualifications or screening was put in place before the workers were chosen, but I did review sections of the data and accept or reject what seemed reasonable. An additional 860 aspect/modifier pairs were hand labeled by a family member who only knew that the labels were extracted from amazon reviews about headphones and followed a similar template as the turk HTML. 
+ Using the following [Turk_Form_HTML](https://github.com/ddey117/ABSA_Project_4/blob/main/html/Turk_Instructions.html) I crowdsourced some labels from humans using Amazon Mechanical Turk to compare to my model using the SentimentIntensityAnalyzer for each aspect/modifier pair extracted from the Amazon reviews. Amazon Mechanical Turk works by quickly dispersing large amounts of data to a large number of people in order to complete simple tasks for a reward. This experiment was set up to reward a penny for each aspect/modifier pair labeled for sentiment from very negative to very positive with an option for NA from a drop down menu (see html above for reference). In total, 410 workers submitted 6107 non-null aspect/opinion pairs for sentiment intensity pertaining to 1438 unique aspects. Duplicate pairs of aspect/opinion pairs were included to inspect variance of submission from human labels and machine labels for each opinion pair. No qualifications or screening was put in place before the workers were chosen, but I did review sections of the data and accept or reject what seemed reasonable. An additional 860 aspect/modifier pairs were hand labeled by a family member who only knew that the labels were extracted from amazon reviews about headphones and followed a similar template as the turk HTML. 
 
 
 All labels were generated using my triplet extractor on the dataset describing Product_id ["B0001FTVEK"](https://www.amazon.com/Sennheiser-RS120-Wireless-Headphones-Charging/dp/B0001FTVEK) and randomized for different aspect/modifier pairs before sending out to humans for rating for sentiment. 
@@ -289,15 +289,107 @@ Here the parser is looking for the complement of a copular verb. An often used c
 <b>For all Parsing:</b> SpaCy has a large library of named entities it can recoginize and tag. This logic is added for each step in the model.
 </div>
 
-## For More Information
 
-Please review our full analysis in the [Exploratory Jupyter Notebook](./Apple_Twitter_Sentiment_Exploratory_Notebook.ipynb) and the [Modeling Jupyter Notebook](Apple_Twitter_Sentiment_Modeling.ipynb) or the [presentation](./Project_Presentation.pdf).
+Please feel free to review the following sections above under the spaCy documentation for pos_tagging if you would like to get an understanding of how the parser was designed in spaCy. Each link should be a direct link to the appropriate topic.
 
-For any additional questions, please contact:
+[Dependecy Parsing with spaCy](https://spacy.io/usage/linguistic-features#dependency-parse)
+ 
 
-Author Name: Dylan Dey
+[Navigating The Tree](https://spacy.io/usage/linguistic-features#navigating)
 
-Email: ddey2985@gmail.com
+[Named Entity Recognition](https://spacy.io/usage/linguistic-features#named-entities)
+
+
+Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
+
+[VADER sentiment](https://www.researchgate.net/publication/275828927_VADER_A_Parsimonious_Rule-based_Model_for_Sentiment_Analysis_of_Social_Media_Text)
+
+The reasearch paper was published on release of the VADER intensity sentiment analyzer. Please feel free to read to get a better understanding of how this tool was developed before being taken advantage of in this project.
+
+
+TABLE OF REFERENCE:
+<dl>
+<dt>AMOD</dt>
+<dd>adjectival modifier</dd>
+    
+<dt>ADVMOD</dt>
+<dd>adverbial modifier </dd>
+<dd>example: Genetically Modified Food, Less often</dd>
+
+<dt>NSUBJ</dt>
+<dd>"Nominal subject (nsubj) is a nominal which is the syntactic subject and the proto-agent of a clause. That is, it is in the position that passes typical grammatical test for subjecthood, and this argument is the more agentive, the do-er, or the proto-agent of the clause. This nominal may be headed by a noun, or it may be a pronoun or relative pronoun or, in ellipsis contexts, other things such as an adjective." Taken from the documentation.</dd>
+<dd>example: Genetically Modified Food, Less often</dd>
+
+<dt>DOBJ</dt>
+<dd>The direct object of a VP is the noun phrase which is the (accusative) object of the verb</dd>
+
+<dt>DET</dt>
+<dd> Determiner. "The English DET covers most cases of Penn Treebank DT, PDT, WDT. However, when a Penn Treebank word with one of these tags stands alone as a noun phrase rather than modifying another word, then it becomes PRON." Taken from the documentation. 
+ </dd>
+
+<dt>ACOMP</dt>
+<dd> Adjective complement. A phrase that modifies an adjective.
+ </dd>
+
+<dt>cop</dt>
+<dd>"A cop (copula) is the relation of a function word used to link a subject to a nonverbal predicate, including the expression of identity predication (e.g. sentences like “Kim is the President”). It is often a verb but nonverbal (pronominal) copulas are also frequent in the world’s languages. Verbal copulas are tagged AUX, not VERB. Pronominal copulas are tagged PRON or DET." From the documentation.
+</dd>
+
+<dt>INTJ</dt>
+<dd> interjection. An interjection is a word that is used most often as an exclamation or part of an exclamation. 
+</dd>
+</dl>
+
+
+<code style="background:yellow;color:black">Below is an example of the extractor being run to cluster the aspects and return a bar graph of total sentiment (total summation of negative and positive from the VADER sentiment intensity analyzer) as well as a DataFrame with cluster names for further analyses. You can see that for the product_id ["B0001FTVEK"](https://www.amazon.com/Sennheiser-RS120-Wireless-Headphones-Charging/dp/B0001FTVEK), which are RS120 Wireless Headphones, there is a lot of positive sentiment for the value and sound_quality categories as compared to the headphone_design and hiss/tech_diff categories. The hiss category is low enough that it should be the major focus for the company to funnel resources in response to customer demand for improving their product. If they can focus first on fixing the hiss mentioned in many amazon reviews, they can also put a few extra resources into impoving some other design aspects of the headphones, such as the batteries or cradle. </code>
+
+![Extractor Example](extractor_example1.jpg)
+
+### RESULTS
+
+![Results Table](images/results_table2.jpg)
+
+The precision values explain how many times the machine label correctly line up with the human labels for each aspect/opinion pair when guessing for that appropriate sentiment. That is, if the machine were to guess only for negative sentiment, it was in agreement with humans 35% of the time. The accuracy scores represent how many times the machine were right overall for the entire dataset when predicted a certain class. Due to the nature of the dataset, accuracy scores will be low for a lot of the classes strictly because of class imbalances. Therefore, precision is a better metric for judging the performance of my model. However, there were some major issues with the overal expiremental setup that need to be discussed and anaylzed. 
+
+#### Reliability of Experimental Setup
+
+To quickly visualize the variance among the different Amazon Turk workers assigned to labeling the aspect/opinion pairs, a function was utilized to create a bargraph that displays the different labels each worker voted for each aspect/opinion set that appeared in the dataset more than 10 times. It is very apparent that the Amazon turks had a lot of trouble coming to any agreement on sentiment. The task was setup to reward workers to label data as quickly as possible without much safeguard to the quality of the work being submitted other than a quick overview by myself. This cast a large shadow of doubt on the reliabilty of this data to be used as a way to reliably test the accuarcy of my model. In comparison, you can see that the extractor chooses the same sentiment for a unique aspect/opinion pair every single time it shows up in the dataset. While the human data has been revealed to be severely flawed, it has brought up a shining example as to why machine learning may be a better substitute for labeling large amounts of tedius data in the first place.
+
+## Partition Sum Of Squares to Measure Disperson of Turk Data
+
+[Partition Sum of Squares](https://en.wikipedia.org/wiki/Partition_of_sums_of_squares)
+
+
+For simplicity, sum of square statistical measurements were calculated for each aspect in the human labeled data as well as the machine labeled data that had more than 10 votes. This was chosen over entropy as a calculation for dispersion as the "sum of squares" for these data is a close enough estimate for the variance in categorical data for this expirement. Every single human labeled aspect with multiple aspects had a non-zero value for residual sum of squares, while every machine labeled aspect had zero residual error. This shows the difference in variance statistically and mathmatically very clearly between the two and shows the unreliability of the turk data. See the figure below for the total range in the residual sum of square values for the tested aspects in each group.
+
+### Further Discussion and Future Work
+
+1) Due to a lack of funding from grants and some other issues in exiremental design, I feel the most appropriate next step would be to repeat the experiment with more carefully collected labeled data. Increasing the reward per label and the requirements for submission (such as proving a proficiency in english) I believe cam substantiely improve the quality of the human labeled data and reduce the variance in this data significantly. Sourcing reliable test data is the number one priority in continuing future work for this project.
+
+2) Integrate into AWS for scaling
+
+3) integrate into a SQL server for data management
+
+4) incoroprate a flash based UI for viewing results at scale
+
+
+# THANK YOU
+
+
+<nav> 
+<a href="https://dev.to/ddey117">Blog</a> |
+<a href="https://github.com/ddey117/ABSA_Project_4">GitHub</a> |                             
+<a href="https://github.com/ddey117/preprocess_ddey117">PreProcess Github</a> 
+</nav>
+
+
+Dylan Dey
+
+email: ddey2985@gmail.com
+
+
+
+
 
 ## Repository Structure
 
